@@ -43,8 +43,6 @@ featured: true
 
 # Custom links (uncomment lines below)
 links:
-  - name: PDF
-    url: https://proceedings.neurips.cc/paper/2020/file/b282d1735283e8eea45bce393cefe265-Paper.pdf
   - name: ArXiv
     url: https://arxiv.org/abs/2010.02519
 
