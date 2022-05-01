@@ -15,11 +15,11 @@ author_notes:
   - 'Equal contribution'
   - 'Equal contribution'
 
-date: '2013-07-01T00:00:00Z'
+date: '2020-06'
 doi: ''
 
 # Schedule page publish date (NOT publication's date).
-publishDate: '2017-01-01T00:00:00Z'
+publishDate: '2020-12'
 
 # Publication type.
 # Legend: 0 = Uncategorized; 1 = Conference paper; 2 = Journal article;
@@ -42,9 +42,15 @@ tags: []
 featured: true
 
 # Custom links (uncomment lines below)
-# links:
-# - name: Custom Link
-#   url: http://example.org
+links:
+  - name: PDF
+    url: https://proceedings.neurips.cc/paper/2020/file/b282d1735283e8eea45bce393cefe265-Paper.pdf
+  - name: ArXiv
+    url: https://arxiv.org/abs/2010.02519
+
+
+
+  
 
 url_pdf: ''
 url_code: ''
