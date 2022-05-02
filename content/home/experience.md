@@ -29,7 +29,7 @@ experience:
     location: Princeton, NJ, USA
     date_start: '2022-01-01'
     date_end: ''
-    description: |2-
+    description:
          Work on implicit low-rank bias of gradient flow for matrix factorization problems. 
  #       Responsibilities include:
         
