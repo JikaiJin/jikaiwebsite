@@ -22,28 +22,31 @@ date_format: Jan 2006
 #   Leave `date_end` empty if it's your current employer.
 #   Begin multi-line descriptions with YAML's `|2-` multi-line prefix.
 experience:
-  - title: CEO
-    company: GenCoin
+  - title: Research Intern, advised by Prof. Jason D. Lee
+    company: Princeton University
     company_url: ''
     company_logo: org-gc
-    location: California
-    date_start: '2021-01-01'
+    location: Princeton, NJ, USA
+    date_start: '2022-01-01'
     date_end: ''
     description: |2-
-        Responsibilities include:
+         Work on implicit low-rank bias of gradient flow for matrix factorization problems. 
+ #       Responsibilities include:
         
-        * Analysing
-        * Modelling
-        * Deploying
+ #       * Analysing
+ #       * Modelling
+ #       * Deploying
 
-  - title: Professor of Semiconductor Physics
-    company: University X
+  - title: Summer Research Intern, advised by Prof. Suvrit Sra
+    company: Massachusetts Institute of Technology
     company_url: ''
     company_logo: org-x
-    location: California
-    date_start: '2016-01-01'
-    date_end: '2020-12-31'
-    description: Taught electronic engineering and researched semiconductor physics.
+    location: Cambridge, MA, USA
+    date_start: '2021-07-01'
+    date_end: '2021-09-30'
+    description: We propose a framework for accelerated Riemannian optimization algorithms and analyze 
+    its convergence rate. The framework allows us to generalize many known accelerated algorithms to 
+    the Riemannian setting.
 
 design:
   columns: '2'
