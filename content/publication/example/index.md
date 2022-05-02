@@ -1,13 +1,13 @@
 ---
-title: 'Non-convex Distributionally Robust Optimization: Non-asymptotic Analysis'
+title: 'Improved analysis of clipping algorithms for non-convex optimization'
 
 # Authors
 # If you created a profile for a user (e.g. the default `admin` user), write the username (folder name) here
 # and it will be replaced with their full name and linked to their profile.
 authors:
-  - Jikai Jin
   - Bohang Zhang
-  - Haiyang Wang
+  - Jikai Jin
+  - Cong Fang
   - Liwei Wang
 
 # Author notes (optional)
@@ -15,11 +15,11 @@ author_notes:
   - 'Equal contribution'
   - 'Equal contribution'
 
-date: '2021-06-05T00:00:00Z'
+date: '2020-06-05T00:00:00Z'
 doi: ''
 
 # Schedule page publish date (NOT publication's date).
-publishDate: '2021-10-05T00:00:00Z'
+publishDate: '2020-10-05T00:00:00Z'
 
 # Publication type.
 # Legend: 0 = Uncategorized; 1 = Conference paper; 2 = Journal article;
@@ -44,7 +44,7 @@ featured: true
 # Custom links (uncomment lines below)
 links:
   - name: ArXiv
-    url: https://arxiv.org/abs/2110.12459
+    url: https://arxiv.org/abs/2010.02519
 
 
 
