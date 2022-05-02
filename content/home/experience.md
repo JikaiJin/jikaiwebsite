@@ -29,8 +29,7 @@ experience:
     location: Princeton, NJ, USA
     date_start: '2022-01-01'
     date_end: ''
-    description:
-         Work on implicit low-rank bias of gradient flow for matrix factorization problems. 
+    description: Work on implicit low-rank bias of gradient flow for matrix factorization problems. 
  #       Responsibilities include:
         
  #       * Analysing
@@ -44,9 +43,11 @@ experience:
     location: Cambridge, MA, USA
     date_start: '2021-07-01'
     date_end: '2021-09-30'
-    description: We propose a framework for accelerated Riemannian optimization algorithms and analyze 
-    its convergence rate. The framework allows us to generalize many known accelerated algorithms to 
-    the Riemannian setting.
+    description: 
+    
+#    We propose a framework for accelerated Riemannian optimization algorithms and analyze 
+#    its convergence rate. The framework allows us to generalize many known accelerated algorithms to 
+#    the Riemannian setting.
 
 design:
   columns: '2'
