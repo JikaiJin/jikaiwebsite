@@ -1,13 +1,13 @@
 ---
-title: 'Improved analysis of clipping algorithms for non-convex optimization'
+title: 'Non-convex Distributionally Robust Optimization: Non-asymptotic Analysis'
 
 # Authors
 # If you created a profile for a user (e.g. the default `admin` user), write the username (folder name) here
 # and it will be replaced with their full name and linked to their profile.
 authors:
-  - Bohang Zhang
   - Jikai Jin
-  - Cong Fang
+  - Bohang Zhang
+  - Haiyang Wang
   - Liwei Wang
 
 # Author notes (optional)
@@ -15,11 +15,11 @@ author_notes:
   - 'Equal contribution'
   - 'Equal contribution'
 
-date: '2020-06-05T00:00:00Z'
+date: '2021-06-05T00:00:00Z'
 doi: ''
 
 # Schedule page publish date (NOT publication's date).
-publishDate: '2020-10-05T00:00:00Z'
+publishDate: '2021-10-05T00:00:00Z'
 
 # Publication type.
 # Legend: 0 = Uncategorized; 1 = Conference paper; 2 = Journal article;
@@ -31,10 +31,10 @@ publication_types: ['1']
 publication: In *the Thirty-Fourth Annual Conference on Neural Information Processing Systems*
 publication_short: In *NeurIPS 2020*
 
-abstract: Distributionally robust optimization (DRO) is a widely-used approach to learn models that are robust against distribution shift. Compared with the standard optimization setting, the objective function in DRO is more difficult to optimize, and most of the existing theoretical results make strong assumptions on the loss function. In this work we bridge the gap by studying DRO algorithms for general smooth non-convex losses. By carefully exploiting the specific form of the DRO objective, we are able to provide non-asymptotic convergence guarantees even though the objective function is possibly non-convex, non-smooth and has unbounded gradient noise. In particular, we prove that a special algorithm called the mini-batch normalized gradient descent with momentum, can find an ϵ first-order stationary point within O(ϵ−4) gradient complexity. We also discuss the conditional value-at-risk (CVaR) setting, where we propose a penalized DRO objective based on a smoothed version of the CVaR that allows us to obtain a similar convergence guarantee. We finally verify our theoretical results in a number of tasks and find that the proposed algorithm can consistently achieve prominent acceleration.
+abstract: Gradient clipping is commonly used in training deep neural networks partly due to its practicability in relieving the exploding gradient problem. Recently, Zhang et al. [2020a] show that clipped (stochastic) Gradient Descent (GD) converges faster than vanilla GD/SGD via introducing a new assumption called (L0, L1)smoothness, which characterizes the violent fluctuation of gradients typically encountered in deep neural networks. However, their iteration complexities on the problem-dependent parameters are rather pessimistic, and theoretical justification of clipping combined with other crucial techniques, e.g. momentum acceleration, are still lacking. In this paper, we bridge the gap by presenting a general framework to study the clipping algorithms, which also takes momentum methods into consideration. We provide convergence analysis of the framework in both deterministic and stochastic setting, and demonstrate the tightness of our results by comparing them with existing lower bounds. Our results imply that the efficiency of clipping methods will not degenerate even in highly non-smooth regions of the landscape. Experiments confirm the superiority of clipping-based methods in deep learning tasks.
 
 # Summary. An optional shortened abstract.
-summary: We provide the first non-asymptotic analysis of algorithm for DRO with smooth non-convex loss, and verify the efficiency of our algorithm via experiments.
+summary: We provide an improved analysis of the convergence rates of clipping algorithms, theoretically justifying their superior performance in deep learning.
 
 tags: []
 
@@ -44,7 +44,7 @@ featured: true
 # Custom links (uncomment lines below)
 links:
   - name: ArXiv
-    url: https://arxiv.org/abs/2010.02519
+    url: https://arxiv.org/abs/2110.12459
 
 
 
