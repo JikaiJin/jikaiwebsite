@@ -61,6 +61,6 @@ email: 'jkjin@pku.edu.cn'
 highlight_name: true
 ---
 
-Welcome to my personal website! I'm Jikai Jin, a junior student majoring in computational mathematics at Peking University, fourtunately having Prof. Liwei Wang as my research advisor. I enjoy developing theory and algorithms for data-driven disciplines including machine learning and optimization. I'm also interested in applying machine learning methods to solve scientific problems. If you share similar interest with me, feel free to contact me.
+Welcome to my personal website! I'm Jikai Jin, a junior student majoring in computational mathematics at Peking University, fourtunately having Prof. Liwei Wang as my research advisor. I enjoy developing theory and algorithms for data-driven disciplines including machine learning and optimization. I'm also interested in applying machine learning methods to solve scientific problems. If you share similar interest, feel free to contact me via email or Wechat.
 
 {{< icon name="download" pack="fas" >}} Download my {{< staticref "uploads/demo_resume.pdf" "newtab" >}}resumé{{< /staticref >}}.
