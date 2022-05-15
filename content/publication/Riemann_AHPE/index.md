@@ -1,21 +1,25 @@
 ---
-title: 'Understanding Riemannian Acceleration via a Proximal Extragradient Framework'
+title: 'Improved analysis of clipping algorithms for non-convex optimization'
 
 # Authors
 # If you created a profile for a user (e.g. the default `admin` user), write the username (folder name) here
 # and it will be replaced with their full name and linked to their profile.
 authors:
+  - Bohang Zhang
   - Jikai Jin
-  - Suvrit Sra
+  - Cong Fang
+  - Liwei Wang
 
+# Author notes (optional)
 author_notes:
-  - Finished while doing summer internship in 2021
+  - 'Equal contribution'
+  - 'Equal contribution'
 
-date: '2022-02-10T00:00:00Z'
+date: '2020-06-05T00:00:00Z'
 doi: ''
 
 # Schedule page publish date (NOT publication's date).
-publishDate: '2022-02-10T00:00:00Z'
+publishDate: '2020-10-05T00:00:00Z'
 
 # Publication type.
 # Legend: 0 = Uncategorized; 1 = Conference paper; 2 = Journal article;
@@ -24,13 +28,13 @@ publishDate: '2022-02-10T00:00:00Z'
 publication_types: ['1']
 
 # Publication name and optional abbreviated publication name.
-publication: In *the Thirty-Fifth Annual Conference on Learning Theory*
-publication_short: Accepted by *COLT 2022*
+publication: In *the Thirty-Fourth Annual Conference on Neural Information Processing Systems*
+publication_short: In *NeurIPS 2020*
 
-abstract: We contribute to advancing the understanding of Riemannian accelerated gradient methods. In particular, we revisit Accelerated Hybrid Proximal Extragradient(A-HPE), a powerful framework for obtaining Euclidean accelerated methods \citep{monteiro2013accelerated}. Building on A-HPE, we then propose and analyze Riemannian A-HPE. The core of our analysis consists of two key components: (i) a set of new insights into Euclidean A-HPE itself; and (ii) a careful control of metric distortion caused by Riemannian geometry. We illustrate our framework by obtaining a few existing and new Riemannian accelerated gradient methods as special cases, while characterizing their acceleration as corollaries of our main results.
+abstract: Gradient clipping is commonly used in training deep neural networks partly due to its practicability in relieving the exploding gradient problem. Recently, Zhang et al. [2020a] show that clipped (stochastic) Gradient Descent (GD) converges faster than vanilla GD/SGD via introducing a new assumption called (L0, L1)smoothness, which characterizes the violent fluctuation of gradients typically encountered in deep neural networks. However, their iteration complexities on the problem-dependent parameters are rather pessimistic, and theoretical justification of clipping combined with other crucial techniques, e.g. momentum acceleration, are still lacking. In this paper, we bridge the gap by presenting a general framework to study the clipping algorithms, which also takes momentum methods into consideration. We provide convergence analysis of the framework in both deterministic and stochastic setting, and demonstrate the tightness of our results by comparing them with existing lower bounds. Our results imply that the efficiency of clipping methods will not degenerate even in highly non-smooth regions of the landscape. Experiments confirm the superiority of clipping-based methods in deep learning tasks.
 
 # Summary. An optional shortened abstract.
-summary: We propose a fairly general framework for studying Riemannian accelerated methods. We theoretically analyze its convergence rate and show that it can recover a number of new algorithms.
+summary: We provide an improved analysis of the convergence rates of clipping algorithms, theoretically justifying their superior performance in deep learning.
 
 tags: []
 
@@ -40,7 +44,7 @@ featured: true
 # Custom links (uncomment lines below)
 links:
   - name: ArXiv
-    url: https://arxiv.org/abs/2111.02763
+    url: https://arxiv.org/abs/2010.02519
 
 
 
