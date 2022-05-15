@@ -9,6 +9,7 @@ authors:
   - Suvrit Sra
 
 author_notes:
+  - Finished while doing summer internship in 2021
 
 date: '2022-02-10T00:00:00Z'
 doi: ''
