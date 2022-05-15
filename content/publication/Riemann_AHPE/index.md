@@ -7,8 +7,6 @@ title: 'Improved analysis of clipping algorithms for non-convex optimization'
 authors:
   - Jikai Jin
   - Suvrit Sra
-  - Cong Fang
-  - Liwei Wang
 
 date: '2022-02-10T00:00:00Z'
 doi: ''
@@ -28,6 +26,8 @@ publication_short: Accepted by *COLT 2022*
 
 abstract: We contribute to advancing the understanding of Riemannian accelerated gradient methods. In particular, we revisit Accelerated Hybrid Proximal Extragradient(A-HPE), a powerful framework for obtaining Euclidean accelerated methods \citep{monteiro2013accelerated}. Building on A-HPE, we then propose and analyze Riemannian A-HPE. The core of our analysis consists of two key components: (i) a set of new insights into Euclidean A-HPE itself; and (ii) a careful control of metric distortion caused by Riemannian geometry. We illustrate our framework by obtaining a few existing and new Riemannian accelerated gradient methods as special cases, while characterizing their acceleration as corollaries of our main results.
 
+# Summary. An optional shortened abstract.
+summary: We propose a fairly general framework for studying Riemannian accelerated methods. We theoretically analyze its convergence rate and show that it can recover a number of new algorithms.
 
 tags: []
 
