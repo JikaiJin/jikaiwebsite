@@ -26,7 +26,7 @@ experience:
     company: Princeton University
     company_url: ''
 #   company_logo: org-gc
-    location: Princeton, NJ, USA
+    location: online
     date_start: '2022-01-01'
     date_end: ''
     description: Work on implicit low-rank bias of gradient flow for matrix factorization problems. 
@@ -40,7 +40,7 @@ experience:
     company: Massachusetts Institute of Technology
     company_url: ''
 #   company_logo: org-x
-    location: Cambridge, MA, USA
+    location: online
     date_start: '2021-07-01'
     date_end: '2021-09-30'
     description: Work on accelerated optimization algorithms on Riemannian manifolds.
