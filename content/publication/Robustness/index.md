@@ -35,8 +35,8 @@ publication_short: arXiv preprint *arXiv 2205.13863*
 abstract: 
 
 # Summary. An optional shortened abstract.
-summary: We provide theoretical evidence which indicates that the hardness of robust generalization may stem from the expressive power of deep neural networks. 
-Even when standard generalization is easy, robust generalization provably requires the size of DNNs to be exponentially large.
+# summary: We provide theoretical evidence which indicates that the hardness of robust generalization may stem from the expressive power of deep neural networks. 
+# Even when standard generalization is easy, robust generalization provably requires the size of DNNs to be exponentially large.
 
 tags: []
 
