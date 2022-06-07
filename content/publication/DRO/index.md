@@ -39,7 +39,7 @@ summary: We proposed the first non-asymptotic analysis of algorithms for DRO wit
 tags: []
 
 # Display this page in the Featured widget?
-featured: true
+featured: false
 
 # Custom links (uncomment lines below)
 links:
