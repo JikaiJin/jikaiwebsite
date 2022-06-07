@@ -37,7 +37,7 @@ summary: We provide an improved analysis of the convergence rates of clipping al
 tags: []
 
 # Display this page in the Featured widget?
-featured: true
+featured: false
 
 # Custom links (uncomment lines below)
 links:
