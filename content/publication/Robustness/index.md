@@ -33,12 +33,6 @@ publication: arXiv preprint *arXiv 2205.13863*
 publication_short: arXiv preprint *arXiv 2205.13863*
 
 abstract: 
-# It is well known that modern neural networks are vulnerable to adversarial examples. To mitigate this problem, a series of robust learning algorithms have 
-# been proposed. However, although the robust training error can be near zero via some methods, all existing algorithms lead to a high robust generalization error. In 
-# this paper, we provide a theoretical understanding of this puzzling phenomenon from the perspective of expressive power for deep neural networks. Specifically, for 
-# binary classification problems with well-separated data, we show that, for ReLU networks, while mild over-parameterization is sufficient for high robust training 
-# accuracy, there exists a constant robust generalization gap unless the size of the neural network is exponential in the data dimension d. 
-# Even if the data is linear separable, which means achieving low clean generalization error is easy, we can still prove an exp(\Omega(d)) lower bound for robust generalization. Moreover, we establish an improved upper bound of exp(O(k)) for the network size to achieve low robust generalization error when the data lies on a manifold with intrinsic dimension k (k < d). Nonetheless, we also have a lower bound that grows exponentially with respect to k ---- the curse of dimensionality is inevitable. By demonstrating an exponential separation between the network size for achieving low robust training and generalization error, our results reveal that the hardness of robust generalization may stem from the expressive power of practical models.
 
 # Summary. An optional shortened abstract.
 summary: We provide theoretical evidence which indicates that the hardness of robust generalization may stem from the expressive power of deep neural networks. 
