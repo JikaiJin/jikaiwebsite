@@ -33,7 +33,7 @@ publication: arXiv preprint *arXiv 2205.13863*
 publication_short: arXiv preprint *arXiv 2205.13863*
 
 abstract: It is well-known that modern neural networks are vulnerable to adversarial examples. To mitigate this problem, a series of robust learning algorithms have 
-been proposed. However, although the robust training error can be near zero via some methods, all existing algorithms lead to a high robust generalization error. In 
+# been proposed. However, although the robust training error can be near zero via some methods, all existing algorithms lead to a high robust generalization error. In 
 this paper, we provide a theoretical understanding of this puzzling phenomenon from the perspective of expressive power for deep neural networks. Specifically, for 
 binary classification problems with well-separated data, we show that, for ReLU networks, while mild over-parameterization is sufficient for high robust training 
 accuracy, there exists a constant robust generalization gap unless the size of the neural network is exponential in the data dimension d. 
