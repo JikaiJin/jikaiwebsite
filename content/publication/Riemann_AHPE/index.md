@@ -29,7 +29,7 @@ publication_types: ['1']
 publication: In *the Thirty-Fifth Annual Conference on Learning Theory*
 publication_short: Accepted by *COLT 2022*
 
-abstract: We contribute to advancing the understanding of Riemannian accelerated gradient methods. In particular, we revisit Accelerated Hybrid Proximal Extragradient(A-HPE), a powerful framework for obtaining Euclidean accelerated methods \citep{monteiro2013accelerated}. Building on A-HPE, we then propose and analyze Riemannian A-HPE. The core of our analysis consists of two key components: (i) a set of new insights into Euclidean A-HPE itself; and (ii) a careful control of metric 
+abstract: We contribute to advancing the understanding of Riemannian accelerated gradient methods. In particular, we revisit Accelerated Hybrid Proximal Extragradient(A-HPE), a powerful framework for obtaining Euclidean accelerated methods \citep{monteiro2013accelerated}. Building on A-HPE, we then propose and analyze 
 
 # Summary. An optional shortened abstract.
 summary: We provide an improved analysis of the convergence rates of clipping algorithms, theoretically justifying their superior performance in deep learning.
