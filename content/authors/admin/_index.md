@@ -14,13 +14,14 @@ organizations:
     url: https://www.pku.edu.cn/
 
 # Short bio (displayed in user profile at end of posts)
-bio: My research interests include machine learning theory and non-convex optimization.
+bio: My research interests broadly include machine learning, optimization and statistics.
 
 # Interests to show in About widget
 interests:
-  - Deep learning theory
-  - Non-convex, stochastic and geometric optimization
-  - AI for science
+  - Non-convex and geometric optimization
+  - Deep learning theory 
+  - Robust Machine learning
+  - Non-parametric estimation and applications
 
 # Education to show in About widget
 education:
@@ -61,6 +62,6 @@ email: 'jkjin@pku.edu.cn'
 highlight_name: true
 ---
 
-Welcome to my personal website! I'm currently a junior undergraduate student majoring in computational mathematics at Peking University, fourtunately having Prof. Liwei Wang as my research advisor. My research interest includes theoretical and algorithmic aspects of deep learning and optimization, as well as their applications in other scientific disciplines. My work is often built on leveraging mathematical tools to get unique insights into real-world problems. If you share similar interest, feel free to contact me via email or Wechat.
+Welcome to my personal website! I'm currently a junior undergraduate student majoring in computational mathematics at Peking University, fourtunately having Prof. Liwei Wang as my research advisor. My research interest includes theoretical and algorithmic aspects of machine learning, statistics and optimization, as well as their applications in other scientific disciplines. My work is often built on leveraging mathematical tools to get unique insights into real-world problems. If you share similar interest, feel free to contact me via email or Wechat.
 
 {{< icon name="download" pack="fas" >}} Download my {{< staticref "uploads/resume.pdf" "newtab" >}}resumé{{< /staticref >}}.
