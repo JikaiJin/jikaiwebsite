@@ -22,6 +22,14 @@ date_format: Jan 2006
 #   Leave `date_end` empty if it's your current employer.
 #   Begin multi-line descriptions with YAML's `|2-` multi-line prefix.
 experience:
+  - title: Summer Research Intern, advised by Prof. Lexing Ying
+    company: Stanford University
+    company_url: ''
+#   company_logo: org-gc
+    location: online
+    date_start: '2022-07-01'
+    date_end: ''
+    description: Work on minimax optimal kernel opertor learning with multilevel training.
   - title: Research Intern, advised by Prof. Jason D. Lee
     company: Princeton University
     company_url: ''
@@ -29,7 +37,7 @@ experience:
     location: online
     date_start: '2022-01-01'
     date_end: ''
-    description: Work on implicit low-rank bias of gradient flow for matrix factorization problems. 
+    description: Work on the incremental learning effect of gradient descent as an algorithmic regularization. 
  #       Responsibilities include:
         
  #       * Analysing
