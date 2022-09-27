@@ -14,7 +14,7 @@ subtitle:
 
 # Date format for experience
 #   Refer to https://wowchemy.com/docs/customization/#date-format
-date_format: "2006"
+date_format: "Jan 2006"
 
 # Experiences.
 #   Add/remove as many `experience` items below as you like.
@@ -27,9 +27,9 @@ experience:
     company_url: ''
 #   company_logo: org-gc
     location: online
-#   date_start: '2022-07-01'
-#   date_end: ''
-    date: '2022'
+    date_start: '2022-07-01'
+    date_end: '2022-09-30'
+#   date: '2022'
     description: Work on minimax optimal kernel opertor learning with multilevel training.
   - title: Research Intern, advised by Prof. Jason D. Lee
     company: Princeton University
@@ -37,7 +37,7 @@ experience:
 #   company_logo: org-gc
     location: online
     date_start: '2022-01-01'
-    date_end: ''
+    date_end: '2022-09-30'
     description: Work on the incremental learning effect of gradient descent as an algorithmic regularization. 
  #       Responsibilities include:
         
