@@ -27,8 +27,9 @@ experience:
     company_url: ''
 #   company_logo: org-gc
     location: online
-    date_start: '2022-07-01'
-    date_end: ''
+#   date_start: '2022-07-01'
+#   date_end: ''
+    date: '2022'
     description: Work on minimax optimal kernel opertor learning with multilevel training.
   - title: Research Intern, advised by Prof. Jason D. Lee
     company: Princeton University
