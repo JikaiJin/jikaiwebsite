@@ -30,7 +30,7 @@ experience:
     date_start: '2022-07-01'
     date_end: '2022-09-30'
 #   date: '2022'
-    description: Work on minimax optimal kernel opertor learning with multilevel training.
+    description: Work on minimax optimal kernel operator learning with multilevel training.
   - title: Research Intern, advised by Prof. Jason D. Lee
     company: Princeton University
     company_url: ''
