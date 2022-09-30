@@ -26,7 +26,7 @@ publishDate: '2022-05-27T00:00:00Z'
 # Legend: 0 = Uncategorized; 1 = Conference paper; 2 = Journal article;
 # 3 = Preprint / Working Paper; 4 = Report; 5 = Book; 6 = Book section;
 # 7 = Thesis; 8 = Patent
-publication_types: ['3']
+publication_types: ['1']
 
 # Publication name and optional abbreviated publication name.
 publication: arXiv preprint *arXiv:2205.13863*, accepted by *NeurIPS 2022*
@@ -36,7 +36,7 @@ abstract: It is well-known that modern neural networks are vulnerable to adversa
 # Summary. An optional shortened abstract.
 summary: We provide theoretical evidence that the hardness of robust generalization may stem from the expressive power of deep neural networks. Even when standard generalization is easy, robust generalization provably requires the size of DNNs to be exponentially large.
 
-tags: []
+tags: [Deep Learning Theory, Adversarial Robustness, Expressive Power]
 
 # Display this page in the Featured widget?
 featured: true
