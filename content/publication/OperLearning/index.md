@@ -28,9 +28,8 @@ publishDate: '2022-09-30T00:00:00Z'
 publication_types: ['3']
 
 # Publication name and optional abbreviated publication name.
-publication: *ArXiv preprint 2209.14430*
-publication_short: *ArXiv preprint 2209.14430*
-
+publication: 
+publication_short: 
 abstract: Learning mappings between infinite-dimensional function spaces has achieved empirical success in many disciplines of machine learning, including generative modeling, functional data analysis, causal inference, and multi-agent reinforcement learning. In this paper, we study the statistical limit of learning a Hilbert-Schmidt operator between two infinite-dimensional Sobolev reproducing kernel Hilbert spaces. We establish the information-theoretic lower bound in terms of the Sobolev Hilbert-Schmidt norm and show that a regularization that learns the spectral components below the bias contour and ignores the ones that are above the variance contour can achieve the optimal learning rate. At the same time, the spectral components between the bias and variance contours give us flexibility in designing computationally feasible machine learning algorithms. Based on this observation, we develop a multilevel kernel operator learning algorithm that is optimal when learning linear operators between infinite-dimensional function spaces.
 
 # Summary. An optional shortened abstract.
