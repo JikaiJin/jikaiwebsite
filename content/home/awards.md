@@ -8,8 +8,8 @@ headless = true  # This file represents a page section.
 active = true  # Activate this widget? true/false
 weight = 65  # Order that this section will appear.
 
-title = "Recent News"
-subtitle = "[All news>>](/news)"
+title = "Awards and Honors"
+subtitle = "[All awards and honors>>](/awards)"
 
 [design]
   # Choose how many columns the section has. Valid values: 1 or 2.
