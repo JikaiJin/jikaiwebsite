@@ -22,8 +22,8 @@ date_format: "Jan 2006"
 #   Leave `date_end` empty if it's your current employer.
 #   Begin multi-line descriptions with YAML's `|2-` multi-line prefix.
 experience:
-  - title: Remote Summer Research Intern, advised by Prof. Lexing Ying
-    company: Stanford University
+  - title: Remote Summer Research Intern
+    company: advised by Prof. Lexing Ying (Stanford)
     company_url: ''
 #   company_logo: org-gc
     location: online
@@ -31,8 +31,8 @@ experience:
     date_end: '2022-09-30'
 #   date: '2022'
     description: Work on minimax optimal kernel operator learning with multilevel training.
-  - title: Remote Research Intern, advised by Prof. Jason D. Lee and Prof. Simon S. Du
-    company: Princeton University and the University of Washington
+  - title: Remote Research Intern
+    company: advised by Prof. Jason D. Lee (Princeton) and Prof. Simon S. Du (UW Seattle)
     company_url: ''
 #   company_logo: org-gc
     location: online
@@ -45,8 +45,8 @@ experience:
  #       * Modelling
  #       * Deploying
 
-  - title: Remote Summer Research Intern, advised by Prof. Suvrit Sra
-    company: Massachusetts Institute of Technology
+  - title: Remote Summer Research Intern
+    company: advised by Prof. Suvrit Sra (MIT)
     company_url: ''
 #   company_logo: org-x
     location: online
@@ -54,14 +54,14 @@ experience:
     date_end: '2021-09-30'
     description: Work on accelerated optimization algorithms on Riemannian manifolds.
     
-  - title: Unergrduate Research Intern, advised by Prof. Liwei Wang
-    company: Peking University
+  - title: Unergrduate Research Intern
+    company: advised by Prof. Liwei Wang (Peking University)
     company_url: ''
 #   company_logo: org-x
     location: Beijing, China
     date_start: '2020-02-01'
     date_end: ''
-    description: Work on non-convex and stochastic optimization, deep learning theory, etc.
+    description: Work on non-convex and stochastic optimization, robustness in deep learning, etc.
 
 design:
   columns: '2'
