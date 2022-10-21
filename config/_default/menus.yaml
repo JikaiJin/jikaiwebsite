@@ -17,7 +17,7 @@ main:
     url: '#recent_news'
     weight: 20
   - name: Experience
-    url: 'experience'
+    url: '#experience'
     weight: 70
 
 # Link to a PDF of your resume/CV from the menu.
