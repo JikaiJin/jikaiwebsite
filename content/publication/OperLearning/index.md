@@ -38,7 +38,7 @@ summary: We analyze the optimal learning rate of linear operator between Sobolev
 tags: [Scientific Machine learning,Non-parametric estimation]
 
 # Display this page in the Featured widget?
-featured: false
+featured: true
 
 # Custom links (uncomment lines below)
 links:
