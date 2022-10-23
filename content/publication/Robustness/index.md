@@ -62,7 +62,7 @@ url_video: ''
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder.
 image:
-  caption: 'Bejing CCTV Headquarters'
+  caption: 'Wangfujing, Beijing'
   focal_point: ''
   preview_only: false
 
