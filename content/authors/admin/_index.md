@@ -21,7 +21,7 @@ interests:
   - Non-convex and geometric optimization
   - Deep learning theory 
   - Robust Machine learning
-  - Non-parametric estimation and applications
+  - AI for Science
 
 # Education to show in About widget
 education:
