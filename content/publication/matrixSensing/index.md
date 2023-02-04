@@ -1,5 +1,5 @@
 ---
-title: 'Minimax Optimal Kernel Operator Learning via Multilevel Training'
+title: 'Understanding Incremental Learning of Gradient Descent -- A Fine-grained Analysis of Matrix Sensing'
 
 # Authors
 # If you created a profile for a user (e.g. the default `admin` user), write the username (folder name) here
