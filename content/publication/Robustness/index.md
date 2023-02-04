@@ -39,7 +39,7 @@ summary: We provide theoretical evidence that the hardness of robust generalizat
 tags: [Deep Learning Theory, Adversarial Robustness, Expressive Power]
 
 # Display this page in the Featured widget?
-featured: true
+featured: false
 
 # Custom links (uncomment lines below)
 links:
