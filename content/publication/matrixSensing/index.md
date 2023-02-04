@@ -1,23 +1,25 @@
 ---
-title: ''
+title: 'Minimax Optimal Kernel Operator Learning via Multilevel Training'
 
 # Authors
 # If you created a profile for a user (e.g. the default `admin` user), write the username (folder name) here
 # and it will be replaced with their full name and linked to their profile.
 authors:
   - Jikai Jin
-  - Zhiyuan Li
-  - Kaifeng Lyu
-  - Simon S. Du
-  - Jason D. Lee
+  - Yiping Lu
+  - Jose Blanchet
+  - Lexing Ying
 
 # Author notes (optional)
+# author_notes:
+#  - 'Equal contribution'
+#  - 'Equal contribution'
 
-date: '2023-01-27T00:00:00Z'
+date: '2022-09-30T00:00:00Z'
 doi: ''
 
 # Schedule page publish date (NOT publication's date).
-publishDate: '2023-1-27T00:00:00Z'
+publishDate: '2022-09-30T00:00:00Z'
 
 # Publication type.
 # Legend: 0 = Uncategorized; 1 = Conference paper; 2 = Journal article;
@@ -26,14 +28,14 @@ publishDate: '2023-1-27T00:00:00Z'
 publication_types: ['3']
 
 # Publication name and optional abbreviated publication name.
-publication: ArXiv preprint 2301.11500
-publication_short: *ArXiv preprint 2301.11500*
+publication: arXiv preprint *arXiv:2209.14430*
+publication_short: arXiv preprint *arXiv:2209.14430*
+abstract: Learning mappings between infinite-dimensional function spaces has achieved empirical success in many disciplines of machine learning, including generative modeling, functional data analysis, causal inference, and multi-agent reinforcement learning. In this paper, we study the statistical limit of learning a Hilbert-Schmidt operator between two infinite-dimensional Sobolev reproducing kernel Hilbert spaces. We establish the information-theoretic lower bound in terms of the Sobolev Hilbert-Schmidt norm and show that a regularization that learns the spectral components below the bias contour and ignores the ones that are above the variance contour can achieve the optimal learning rate. At the same time, the spectral components between the bias and variance contours give us flexibility in designing computationally feasible machine learning algorithms. Based on this observation, we develop a multilevel kernel operator learning algorithm that is optimal when learning linear operators between infinite-dimensional function spaces.
 
-abstract: It is believed that Gradient Descent (GD) induces an implicit bias towards good generalization in training machine learning models. This paper provides a fine-grained analysis of the dynamics of GD for the matrix sensing problem, whose goal is to recover a low-rank ground-truth matrix from near-isotropic linear measurements. It is shown that GD with small initialization behaves similarly to the greedy low-rank learning heuristics (Li et al., 2020) and follows an incremental learning procedure (Gissin et al., 2019): GD sequentially learns solutions with increasing ranks until it recovers the ground truth matrix. Compared to existing works which only analyze the first learning phase for rank-1 solutions, our result provides characterizations for the whole learning process. Moreover, besides the over-parameterized regime that many prior works focused on, our analysis of the incremental learning procedure also applies to the under-parameterized regime. Finally, we conduct numerical experiments to confirm our theoretical findings.
 # Summary. An optional shortened abstract.
-# summary: We provide an improved analysis of the convergence rates of clipping algorithms, theoretically justifying their superior performance in deep learning.
+summary: We analyze the optimal learning rate of linear operator between Sobolev spaces and quality a setting where multilevel training is necessary to achieve the optimal rate.
 
-tags: [Deep Learning Theory]
+tags: [Scientific Machine learning,Non-parametric estimation]
 
 # Display this page in the Featured widget?
 featured: true
@@ -41,7 +43,7 @@ featured: true
 # Custom links (uncomment lines below)
 links:
   - name: ArXiv
-    url: https://arxiv.org/abs/2301.11500
+    url: https://arxiv.org/abs/2209.14430
 
 
 
@@ -59,7 +61,7 @@ url_video: ''
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder.
 image:
-  caption: 'Image credit: [**Unsplash**](https://unsplash.com/photos/pLCdAaMFLTE)'
+  caption: 'The Xihai Sea'
   focal_point: ''
   preview_only: false
 
