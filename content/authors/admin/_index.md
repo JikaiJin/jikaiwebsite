@@ -14,14 +14,12 @@ organizations:
     url: https://www.pku.edu.cn/
 
 # Short bio (displayed in user profile at end of posts)
-bio: My research interests broadly include machine learning, optimization and statistics.
+bio: My research interests broadly include statistics, applied probability and operations research.
 
 # Interests to show in About widget
 interests:
-  - Non-convex and geometric optimization
-  - Deep learning theory 
-  - Robust Machine learning
-  - AI for Science
+  - Machine learning for science
+  - Causal inference and experiment design
 
 # Education to show in About widget
 education:
