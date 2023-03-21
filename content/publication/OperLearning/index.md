@@ -25,17 +25,17 @@ publishDate: '2022-09-30T00:00:00Z'
 # Legend: 0 = Uncategorized; 1 = Conference paper; 2 = Journal article;
 # 3 = Preprint / Working Paper; 4 = Report; 5 = Book; 6 = Book section;
 # 7 = Thesis; 8 = Patent
-publication_types: ['3']
+publication_types: ['1']
 
 # Publication name and optional abbreviated publication name.
-publication: arXiv preprint *arXiv:2209.14430*
-publication_short: arXiv preprint *arXiv:2209.14430*
+publication: In *The Eleventh International Conference on Learning Representations (spotlight)*
+publication_short: In *ICLR 2023 (spotlight)*
 abstract: Learning mappings between infinite-dimensional function spaces has achieved empirical success in many disciplines of machine learning, including generative modeling, functional data analysis, causal inference, and multi-agent reinforcement learning. In this paper, we study the statistical limit of learning a Hilbert-Schmidt operator between two infinite-dimensional Sobolev reproducing kernel Hilbert spaces. We establish the information-theoretic lower bound in terms of the Sobolev Hilbert-Schmidt norm and show that a regularization that learns the spectral components below the bias contour and ignores the ones that are above the variance contour can achieve the optimal learning rate. At the same time, the spectral components between the bias and variance contours give us flexibility in designing computationally feasible machine learning algorithms. Based on this observation, we develop a multilevel kernel operator learning algorithm that is optimal when learning linear operators between infinite-dimensional function spaces.
 
 # Summary. An optional shortened abstract.
 summary: We analyze the optimal learning rate of linear operator between Sobolev spaces and quality a setting where multilevel training is necessary to achieve the optimal rate.
 
-tags: [Scientific Machine learning,Non-parametric estimation]
+tags: [Machine learning for Science, Non-parametric estimation]
 
 # Display this page in the Featured widget?
 featured: true
