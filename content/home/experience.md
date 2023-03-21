@@ -26,7 +26,7 @@ experience:
   - title: Unergrduate Research Intern
     company: advised by Prof. Liwei Wang (Peking University)
     company_url: ''
-#   company_logo: org-x
+    company_logo: pku
     location: Beijing, China
     date_start: '2020-02-01'
     date_end: ''
