@@ -25,9 +25,15 @@ interests:
 # Education to show in About widget
 education:
   courses:
+    - course: Ph.D. in Computational Mathematics
+      institution: ICME, Stanford University
+      year: 2023 - 2028 (expected)
     - course: BSc in Computational Mathematics
       institution: Peking University
-      year: 2023(expected)
+      year: 2019 - 2023 (expected)
+    - course: High School Diploma
+      institution: No.2 High School of Each China Normal University
+      year: 2017 - 2019
 
 # Social/Academic Networking
 # For available icons, see: https://wowchemy.com/docs/getting-started/page-builder/#icons
@@ -55,12 +61,12 @@ social:
 #   link: uploads/resume.pdf
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
-email: 'jkjin@pku.edu.cn'
+email: 'jkjin@stanford.edu'
 
 # Highlight the author in author lists? (true/false)
 highlight_name: true
 ---
 
-Welcome to my personal website! I am currently a senior undergraduate student majoring in computational mathematics at [School of Mathematical Sciences](http://english.math.pku.edu.cn/), [Peking University](https://english.pku.edu.cn/), fortunately having [Prof. Liwei Wang](http://www.liweiwang-pku.com/) as my research advisor. My research is highly interdisciplinary across statistics, applied probability and operations research. While being trained as a theorist, the ultimate goal of my research is to develop state-of-the-art solutions for important real-world problems. If you share similar interest, feel free to contact me via email or Wechat. In this fall, I am going to join [The Institute for Computational and Mathematical Engineering (ICME)](https://icme.stanford.edu/) at [Stanford university](https://www.stanford.edu/) as a Ph.D. student.
+Welcome to my personal website! I am currently a senior undergraduate student majoring in computational mathematics at the [School of Mathematical Sciences](http://english.math.pku.edu.cn/), [Peking University](https://english.pku.edu.cn/), fortunately having [Prof. Liwei Wang](http://www.liweiwang-pku.com/) as my research advisor. My research is highly interdisciplinary across statistics, applied probability and operations research. While being trained as a theorist, the ultimate goal of my research is to develop state-of-the-art solutions for important real-world problems. If you share similar interest, feel free to contact me via email or Wechat. In this fall, I am going to join [The Institute for Computational and Mathematical Engineering (ICME)](https://icme.stanford.edu/) at [Stanford university](https://www.stanford.edu/) as a Ph.D. student.
 
 # {{< icon name="download" pack="fas" >}} Download my {{< staticref "uploads/resume.pdf" "newtab" >}}resumé{{< /staticref >}}.
