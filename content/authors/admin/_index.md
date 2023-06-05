@@ -18,8 +18,8 @@ bio: My research interests broadly include statistics, applied probability and o
 
 # Interests to show in About widget
 interests:
-  - Statistics: non-parametric and causal inference
-  - Operations research: experiment design, uncertainty in decision-making
+  - Statistics (non-parametric and causal inference)
+  - Operations research (experiment design, uncertainty in decision-making)
   - Social aspects of data science
 
 # Education to show in About widget
