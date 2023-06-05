@@ -18,8 +18,9 @@ bio: My research interests broadly include statistics, applied probability and o
 
 # Interests to show in About widget
 interests:
-  - Machine learning for science
-  - Causal inference and experiment design
+  - Statistics: non-parametric and causal inference
+  - Operations research: experiment design, uncertainty in decision-making
+  - Social aspects of data science
 
 # Education to show in About widget
 education:
