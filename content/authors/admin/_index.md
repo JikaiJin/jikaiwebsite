@@ -69,4 +69,4 @@ highlight_name: true
 
 Welcome to my personal website! I am currently a senior undergraduate student majoring in computational mathematics at the [School of Mathematical Sciences](http://english.math.pku.edu.cn/), [Peking University](https://english.pku.edu.cn/), fortunately having [Prof. Liwei Wang](http://www.liweiwang-pku.com/) as my research advisor. My research is highly interdisciplinary across statistics, applied probability and operations research. While being trained as a theorist, the ultimate goal of my research is to develop state-of-the-art solutions for important real-world problems. If you share similar interest, feel free to contact me via email or Wechat. In this fall, I am going to join [The Institute for Computational and Mathematical Engineering (ICME)](https://icme.stanford.edu/) at [Stanford university](https://www.stanford.edu/) as a Ph.D. student.
 
-# {{< icon name="download" pack="fas" >}} Download my {{< staticref "uploads/resume.pdf" "newtab" >}}resumé{{< /staticref >}}.
+{{< icon name="download" pack="fas" >}} Download my {{< staticref "uploads/resume.pdf" "newtab" >}}resumé{{< /staticref >}}.
