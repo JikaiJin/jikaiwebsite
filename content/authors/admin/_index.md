@@ -32,7 +32,7 @@ education:
       institution: Peking University
       year: 2019 - 2023 (expected)
     - course: High School Diploma
-      institution: No.2 High School of Each China Normal University
+      institution: No.2 High School of East China Normal University
       year: 2017 - 2019
 
 # Social/Academic Networking
