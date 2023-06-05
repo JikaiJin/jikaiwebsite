@@ -45,3 +45,5 @@ content:
 design:
   columns: '2'
 ---
+
+<script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=hTTCwL6j2b86VfyaWebPgMSN4J3Jg5gJFLiOUy8AcjE&cl=ffffff&w=a"></script>
