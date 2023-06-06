@@ -62,7 +62,7 @@ url_video: ''
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder.
 image:
-  caption: 'Visiting Caltech'
+  caption: 'A museum in Kigali, Rwanda dedicated to 600 FPR soldiers in the genocide.'
   focal_point: 'Center'
   preview_only: false
 
