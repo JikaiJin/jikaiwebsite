@@ -34,7 +34,7 @@ publication_short: arXiv preprint *arXiv 2301.11500*
 abstract: It is believed that Gradient Descent (GD) induces an implicit bias towards good generalization in training machine learning models. This paper provides a fine-grained analysis of the dynamics of GD for the matrix sensing problem, whose goal is to recover a low-rank ground-truth matrix from near-isotropic linear measurements. It is shown that GD with small initialization behaves similarly to the greedy low-rank learning heuristics (Li et al., 2020) and follows an incremental learning procedure (Gissin et al., 2019) -- GD sequentially learns solutions with increasing ranks until it recovers the ground truth matrix. Compared to existing works which only analyze the first learning phase for rank-1 solutions, our result provides characterizations for the whole learning process. Moreover, besides the over-parameterized regime that many prior works focused on, our analysis of the incremental learning procedure also applies to the under-parameterized regime. Finally, we conduct numerical experiments to confirm our theoretical findings.
 
 # Summary. An optional shortened abstract.
-# summary: We analyze the optimal learning rate of linear operator between Sobolev spaces and quality a setting where multilevel training is necessary to achieve the optimal rate.
+Summary: We prove that GD applied to the matrix sensing problem has intriguing properties: with small initialization and early stopping, it follows an incremental/greedy low-rank learning procedure. This form of simplicity bias allows GD to recover the ground-truth, despite over-parameterization and non-convexity.
 
 tags: [Deep Learning Theory]
 
