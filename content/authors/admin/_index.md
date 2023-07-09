@@ -6,31 +6,31 @@ title: Jikai Jin
 superuser: true
 
 # Role/position/tagline
-role: Undergraduate student
+role: Ph.D. student
 
 # Organizations/Affiliations to show in About widget
 organizations:
-  - name: Peking university
-    url: https://www.pku.edu.cn/
+  - name: Stanford university
+    url: https://www.stanford.edu/
 
 # Short bio (displayed in user profile at end of posts)
-bio: My research interests broadly include statistics, applied probability and operations research.
+bio: My research interests broadly include machine learning, statistics and operations research.
 
 # Interests to show in About widget
 interests:
   - Statistics (non-parametric and causal inference)
   - Operations research (experiment design, uncertainty in decision-making)
-  - Social aspects of data science
+  - Machine Learning (theory, algorithms and social aspects)
 
 # Education to show in About widget
 education:
   courses:
-    - course: Ph.D. in Computational Mathematics
-      institution: ICME, Stanford University
+    - course: Ph.D. in Computational and Mathematical Engineering
+      institution: Stanford University
       year: 2023 - 2028 (expected)
     - course: BSc in Computational Mathematics
       institution: Peking University
-      year: 2019 - 2023 (expected)
+      year: 2019 - 2023
     - course: High School Diploma
       institution: No.2 High School of East China Normal University
       year: 2017 - 2019
@@ -67,6 +67,5 @@ email: 'jkjin@stanford.edu'
 highlight_name: true
 ---
 
-Welcome to my personal website! I am currently a senior undergraduate student majoring in computational mathematics at the [School of Mathematical Sciences](http://english.math.pku.edu.cn/), [Peking University](https://english.pku.edu.cn/), fortunately having [Prof. Liwei Wang](http://www.liweiwang-pku.com/) as my research advisor. My research is highly interdisciplinary across statistics, applied probability and operations research. While being trained as a theorist, the ultimate goal of my research is to develop state-of-the-art solutions for important real-world problems. If you share similar interest, feel free to contact me via email or Wechat. In this fall, I am going to join [The Institute for Computational and Mathematical Engineering (ICME)](https://icme.stanford.edu/) at [Stanford university](https://www.stanford.edu/) as a Ph.D. student.
-
+Welcome to my personal website! I am an incoming Ph.D. student of the [The Institute for Computational and Mathematical Engineering (ICME)](https://icme.stanford.edu/) at [Stanford university](https://www.stanford.edu/). Prior to joining Stanford, I obtained my bachelor degree in computational mathematics at the [School of Mathematical Sciences](http://english.math.pku.edu.cn/), [Peking University](https://english.pku.edu.cn/), fortunately having [Prof. Liwei Wang](http://www.liweiwang-pku.com/) as my research advisor. My research is highly interdisciplinary across machine learning, statistics, operations research. While primarily focusing on theoretical aspects, the ultimate goal of my research is to develop state-of-the-art solutions for important real-world problems. If you share similar interest, feel free to contact me via email or Wechat.
 {{< icon name="download" pack="fas" >}} Download my {{< staticref "uploads/resume.pdf" "newtab" >}}resumé{{< /staticref >}}.
