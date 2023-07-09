@@ -26,11 +26,11 @@ publishDate: '2023-01-27T00:00:00Z'
 # Legend: 0 = Uncategorized; 1 = Conference paper; 2 = Journal article;
 # 3 = Preprint / Working Paper; 4 = Report; 5 = Book; 6 = Book section;
 # 7 = Thesis; 8 = Patent
-publication_types: ['3']
+publication_types: ['1']
 
 # Publication name and optional abbreviated publication name.
-publication: arXiv preprint *arXiv 2301.11500*
-publication_short: arXiv preprint *arXiv 2301.11500*
+publication: The Fortieth International Conference on Machine Learning
+publication_short: ICML 2023
 abstract: It is believed that Gradient Descent (GD) induces an implicit bias towards good generalization in training machine learning models. This paper provides a fine-grained analysis of the dynamics of GD for the matrix sensing problem, whose goal is to recover a low-rank ground-truth matrix from near-isotropic linear measurements. It is shown that GD with small initialization behaves similarly to the greedy low-rank learning heuristics (Li et al., 2020) and follows an incremental learning procedure (Gissin et al., 2019) -- GD sequentially learns solutions with increasing ranks until it recovers the ground truth matrix. Compared to existing works which only analyze the first learning phase for rank-1 solutions, our result provides characterizations for the whole learning process. Moreover, besides the over-parameterized regime that many prior works focused on, our analysis of the incremental learning procedure also applies to the under-parameterized regime. Finally, we conduct numerical experiments to confirm our theoretical findings.
 
 # Summary. An optional shortened abstract.
@@ -43,6 +43,8 @@ featured: true
 
 # Custom links (uncomment lines below)
 links:
+  - name: PDF
+    url: https://proceedings.mlr.press/v202/jin23a.html
   - name: ArXiv
     url: https://arxiv.org/abs/2301.11500
 
