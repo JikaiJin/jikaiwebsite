@@ -43,8 +43,6 @@ featured: true
 
 # Custom links (uncomment lines below)
 links:
-  - name: paper
-    url: https://proceedings.mlr.press/v202/jin23a.html
   - name: ArXiv
     url: https://arxiv.org/abs/2301.11500
   - name: Poster
