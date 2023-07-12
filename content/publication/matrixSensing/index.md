@@ -47,6 +47,8 @@ links:
     url: https://proceedings.mlr.press/v202/jin23a.html
   - name: ArXiv
     url: https://arxiv.org/abs/2301.11500
+  - name: Poster
+    url: https://drive.google.com/file/d/1Us3VwASjSbz2nXGJVPgT7715ydTPEb_M/view?usp=drive_link
 
 
 
