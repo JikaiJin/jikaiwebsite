@@ -42,8 +42,12 @@ featured: true
 
 # Custom links (uncomment lines below)
 links:
+  - name: Paper
+    url: https://openreview.net/pdf?id=zEn1BhaNYsC
   - name: ArXiv
     url: https://arxiv.org/abs/2209.14430
+  - name: Poster
+    url: https://drive.google.com/file/d/1R-Ifc5MaOV32U_ORMaxVfKWEGdBn5qnS/view?usp=drive_link
 
 
 
