@@ -35,7 +35,7 @@ abstract: Learning mappings between infinite-dimensional function spaces has ach
 # Summary. An optional shortened abstract.
 summary: We consider the problem of learning a linear operator between Sobolev RKHSs from noisy data. Different from its finite-dimensional counterpart where regularized least squares is optimal, we prove that estimators with a certain multilevel structure is necessary (and sufficient) to achieve optimality.
 
-tags: [Machine learning for Science, Non-parametric estimation]
+tags: [Machine learning for Science, Non-parametric Estimation]
 
 # Display this page in the Featured widget?
 featured: true
@@ -44,6 +44,8 @@ featured: true
 links:
   - name: ArXiv
     url: https://arxiv.org/abs/2209.14430
+  - name: Slides
+    url: https://drive.google.com/file/d/16LPbE-dKHsRPMTSbCIfmhIo01PDb129k/view?usp=sharing
   - name: Poster
     url: https://drive.google.com/file/d/1R-Ifc5MaOV32U_ORMaxVfKWEGdBn5qnS/view?usp=drive_link
 
