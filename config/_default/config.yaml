@@ -44,10 +44,10 @@ disableAliases: true
 outputs:
   home: [HTML, RSS, JSON, WebAppManifest, headers, redirects]
   section: [HTML, RSS]
-imaging:
-  resampleFilter: Lanczos
-  quality: 100
-  anchor: Smart
+#imaging:
+#  resampleFilter: Lanczos
+#  quality: 100
+#  anchor: Smart
 timeout: 600000
 taxonomies:
   tag: tags
