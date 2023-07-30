@@ -45,8 +45,8 @@ outputs:
   home: [HTML, RSS, JSON, WebAppManifest, headers, redirects]
   section: [HTML, RSS]
 imaging:
-  resampleFilter: MitchellNetravali
-  quality: 100
+  resampleFilter: Lanczos
+  # quality: 100
   anchor: center
 timeout: 600000
 taxonomies:
