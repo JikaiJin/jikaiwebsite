@@ -25,7 +25,7 @@ content:
       captcha: false
 
   # Contact details (edit or remove options as required)
-  email: jkjin@pku.edu.cn
+  email: jinjikai7@gmail.com
   phone: +86 139 0162 1152
   address:
     street: 61 Linyi Road
