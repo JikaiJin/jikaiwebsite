@@ -38,7 +38,7 @@ summary: We consider the problem of learning a linear operator between Sobolev R
 tags: [Machine learning for Science, Non-parametric Estimation]
 
 # Display this page in the Featured widget?
-featured: true
+featured: false
 
 # Custom links (uncomment lines below)
 links:
