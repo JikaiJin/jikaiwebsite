@@ -39,7 +39,7 @@ summary: We prove that GD applied to the matrix sensing problem has intriguing p
 tags: [Deep Learning Theory]
 
 # Display this page in the Featured widget?
-featured: true
+featured: false
 
 # Custom links (uncomment lines below)
 links:
