@@ -28,11 +28,11 @@ publishDate: '2023-11-30T00:00:00Z'
 # Legend: 0 = Uncategorized; 1 = Conference paper; 2 = Journal article;
 # 3 = Preprint / Working Paper; 4 = Report; 5 = Book; 6 = Book section;
 # 7 = Thesis; 8 = Patent
-publication_types: ['3']
+publication_types: ['1']
 
 # Publication name and optional abbreviated publication name.
-publication: In ArXiv preprint 2311.18817
-publication_short: In ArXiv preprint 2311.18817
+publication: In *The Twelfth International Conference on Learning Representations*
+publication_short: In *ICLR 2024*
 abstract: Recent work by Power et al. (2022) highlighted a surprising "grokking" phenomenon in learning arithmetic tasks -- a neural net first "memorizes" the training set, resulting in perfect training accuracy but near-random test accuracy, and after training for sufficiently longer, it suddenly transitions to perfect test accuracy. This paper studies the grokking phenomenon in theoretical setups and shows that it can be induced by a dichotomy of early and late phase implicit biases. Specifically, when training homogeneous neural nets with large initialization and small weight decay on both classification and regression tasks, we prove that the training process gets trapped at a solution corresponding to a kernel predictor for a long time, and then a very sharp transition to min-norm/max-margin predictors occurs, leading to a dramatic change in test accuracy.
 
 # Summary. An optional shortened abstract.
