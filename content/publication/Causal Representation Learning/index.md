@@ -57,10 +57,10 @@ url_video: ''
 
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder.
-image:
-  caption: 'Stanford'
-  focal_point: 'Center'
-  preview_only: false
+# image:
+#  caption: 'Stanford'
+#  focal_point: 'Center'
+#  preview_only: false
 
 # Associated Projects (optional).
 #   Associate this publication with one or more of your projects.
