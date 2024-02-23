@@ -1,5 +1,5 @@
 ---
-title: 'Structure-agnostic Optimality of Doubly Robust Learning for Treatment Effect Estimation'
+title: 'Structure agnostic Optimality of Doubly Robust Learning for Treatment Effect Estimation'
 
 # Authors
 # If you created a profile for a user (e.g. the default `admin` user), write the username (folder name) here
