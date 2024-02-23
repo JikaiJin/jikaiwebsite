@@ -33,7 +33,7 @@ abstract: Average treatment effect estimation is the most central problem in cau
 # Summary. An optional shortened abstract.
 summary: We show that first-order debiasing of black-box ML estimators is optimal for estimating average treatment effect.
 
-tags: 
+tags: [Causal inference]
 
 # Display this page in the Featured widget?
 featured: true
