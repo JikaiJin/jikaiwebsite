@@ -42,6 +42,8 @@ featured: true
 links:
   - name: ArXiv
     url: https://arxiv.org/abs/2311.12267
+  - name: Slides
+    url: https://drive.google.com/file/d/1X6QK4NrqVI0m27A_V7-aqjfowaL9Ry-G/view?usp=sharing
 
 
   
