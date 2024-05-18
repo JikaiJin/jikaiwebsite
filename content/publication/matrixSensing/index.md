@@ -47,6 +47,8 @@ links:
     url: https://arxiv.org/abs/2301.11500
   - name: Poster
     url: https://drive.google.com/file/d/1Us3VwASjSbz2nXGJVPgT7715ydTPEb_M/view?usp=drive_link
+  - name: Slides
+    url: https://drive.google.com/file/d/1PzJ6-kVMoldM8b203rns-fXJiRJS1_TD/view?usp=sharing
 
 
 
