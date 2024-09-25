@@ -26,8 +26,8 @@ publishDate: '2023-11-20T00:00:00Z'
 publication_types: ['3']
 
 # Publication name and optional abbreviated publication name.
-publication: In *ArXiv preprint 2311.12267*
-publication_short: In *ArXiv preprint 2311.12267*
+publication: In *the Thirty-Eighth Annual Conference on Neural Information Processing Systems*
+publication_short: In *NeurIPS 2024 (spotlight)*
 abstract: This paper studies causal representation learning, the task of recovering high-level latent variables and their causal relationships from low-level data that we observe, assuming access to observations generated from multiple environments. While existing works are able to prove full identifiability of the underlying data generating process, they typically assume access to single-node, hard interventions which is rather unrealistic in practice. The main contribution of this paper is characterize a notion of identifiability which is provably the best one can achieve when hard interventions are not available. First, for linear causal models, we provide identifiability guarantee for data observed from general environments without assuming any similarities between them. While the causal graph is shown to be fully recovered, the latent variables are only identified up to an effect-domination ambiguity (EDA). We then propose an algorithm, LiNGCReL which is guaranteed to recover the ground-truth model up to EDA, and we demonstrate its effectiveness via numerical experiments. Moving on to general non-parametric causal models, we prove the same idenfifiability guarantee assuming access to groups of soft interventions. Finally, we provide counterparts of our identifiability results, indicating that EDA is basically inevitable in our setting.
 
 # Summary. An optional shortened abstract.
