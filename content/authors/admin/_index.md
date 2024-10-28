@@ -27,7 +27,7 @@ education:
   courses:
     - course: Ph.D. in Computational and Mathematical Engineering
       institution: Stanford University
-      year: 2023 - 2028 (expected)
+      year: 2023 - 2027 (expected)
     - course: BSc in Computational Mathematics
       institution: Peking University
       year: 2019 - 2023
