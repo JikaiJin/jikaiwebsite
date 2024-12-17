@@ -23,7 +23,7 @@ date_format: "Jan 2006"
 #   Begin multi-line descriptions with YAML's `|2-` multi-line prefix.
 experience:
     
-  - title: Unergrduate Research Intern
+  - title: Undergraduate Research Intern
     company: advised by Prof. Liwei Wang (Peking University)
     company_url: ''
     company_logo: pku
