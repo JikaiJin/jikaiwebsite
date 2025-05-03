@@ -26,8 +26,8 @@ publishDate: '2024-02-22T00:00:00Z'
 publication_types: ['1']
 
 # Publication name and optional abbreviated publication name.
-publication: In *ArXiv preprint 2402.14264*
-publication_short: In *ArXiv preprint 2402.14264*
+publication: In *the Thirty-Eighth Annual Conference on Learning Theory*
+publication_short: In *COLT 2025*
 abstract: Average treatment effect estimation is the most central problem in causal inference with application to numerous disciplines. While many estimation strategies have been proposed in the literature, recently also incorporating generic machine learning estimators, the statistical optimality of these methods has still remained an open area of investigation. In this paper, we adopt the recently introduced structure-agnostic framework of statistical lower bounds, which poses no structural properties on the nuisance functions other than access to black-box estimators that attain small errors; which is particularly appealing when one is only willing to consider estimation strategies that use non-parametric regression and classification oracles as a black-box sub-process. Within this framework, we prove the statistical optimality of the celebrated and widely used doubly robust estimators for both the Average Treatment Effect (ATE) and the Average Treatment Effect on the Treated (ATTE), as well as weighted variants of the former, which arise in policy evaluation.
 
 # Summary. An optional shortened abstract.
@@ -46,6 +46,8 @@ links:
     url: https://drive.google.com/file/d/1bX-D7LeBVrSw7nIAECsrm0AjCmVp20R0/view?usp=sharing
   - name: Slides
     url: https://drive.google.com/file/d/1QdGAqsCqvW5c9MEwds7jIMaG3v51IwgL/view?usp=drive_link
+  - name: blog
+    url: https://www.let-all.com/blog/2024/12/20/structure-agnostic-causal-estimation/
 
 
   
