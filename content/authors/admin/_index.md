@@ -18,9 +18,9 @@ bio: My research interests broadly include machine learning, statistics and oper
 
 # Interests to show in About widget
 interests:
-  - ML and Statistics: ML-empowered statistical estimation
-  - ML and Causality: identifiability theory and algorithms
-  - Statistics and LLM Eval: enhance statistical rigor and provide novel insights
+  - "ML and Statistics: ML-empowered statistical estimation"
+  - "ML and Causality: identifiability theory and algorithms"
+  - "Statistics and LLM Eval: enhance statistical rigor and provide novel insights"
 
 # Education to show in About widget
 education:
