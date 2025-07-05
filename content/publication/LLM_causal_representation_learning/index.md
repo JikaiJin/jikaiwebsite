@@ -34,7 +34,7 @@ abstract: |
 # Summary. An optional shortened abstract.
 summary: We propose a causal representation learning framework to understand the hierarchical structure of language model capabilities, revealing causal relationships between general problem-solving, instruction-following, and mathematical reasoning abilities.
 
-tags: [LLM Evaluation][Causal Representation Learning]
+tags: [LLM Evaluation, Causal Representation Learning]
 
 # Display this page in the Featured widget?
 featured: true
