@@ -41,7 +41,7 @@ summary: We investigate the "grokking" phenomenon in deep learning on some simpl
 tags: [Deep Learning Theory]
 
 # Display this page in the Featured widget?
-featured: true
+featured: false
 
 # Custom links (uncomment lines below)
 links:
