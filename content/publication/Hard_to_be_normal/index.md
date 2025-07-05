@@ -1,5 +1,7 @@
 ---
-title: 
+title: |
+  It's Hard to Be Normal: The Impact of Noise on Structure-agnostic Estimation'
+
 # Authors
 # If you created a profile for a user (e.g. the default `admin` user), write the username (folder name) here
 # and it will be replaced with their full name and linked to their profile.
