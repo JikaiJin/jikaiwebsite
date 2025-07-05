@@ -63,7 +63,7 @@ social:
 # Enter email to display Gravatar (if Gravatar enabled in Config)
 email: 'jkjin@stanford.edu'
 
-# Highlight the author in author lists? (true/false)
+# Highlight the author in author lists? (true/false) 
 highlight_name: true
 ---
 
