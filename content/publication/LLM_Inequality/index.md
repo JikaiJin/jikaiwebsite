@@ -49,6 +49,10 @@ featured: true
 links:
   - name: ArXiv
     url: https://arxiv.org/abs/2506.07927
+  - name: Website
+    url: https://ineqmath.github.io/
+  - name: Twitter
+    url: https://x.com/lupantech/status/1932866286427779586
 
 
   
