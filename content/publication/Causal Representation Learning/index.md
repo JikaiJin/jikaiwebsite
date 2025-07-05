@@ -36,7 +36,7 @@ summary: We study the best-achievable identification guarantees and provable ide
 tags: [Causal machine learning]
 
 # Display this page in the Featured widget?
-featured: true
+featured: false
 
 # Custom links (uncomment lines below)
 links:
