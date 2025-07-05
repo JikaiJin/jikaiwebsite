@@ -1,6 +1,5 @@
 ---
-title: 'It's Hard to Be Normal: The Impact of Noise on Structure-agnostic Estimation'
-
+title: 
 # Authors
 # If you created a profile for a user (e.g. the default `admin` user), write the username (folder name) here
 # and it will be replaced with their full name and linked to their profile.
@@ -27,7 +26,8 @@ publication_types: ['3']
 # Publication name and optional abbreviated publication name.
 publication: In *arXiv preprint arXiv:2507.02275*
 publication_short: In *arXiv preprint arXiv:2507.02275*
-abstract: 
+abstract: |
+  Structure-agnostic causal inference studies how well one can estimate a treatment effect given black-box machine learning estimates of nuisance functions (like the impact of confounders on treatment and outcomes). Here, we find that the answer depends in a surprising way on the distribution of the treatment noise. Focusing on the partially linear model of Robinson (1988), we first show that the widely adopted double machine learning (DML) estimator is minimax rate-optimal for Gaussian treatment noise, resolving an open problem of Mackey et al. (2018). Meanwhile, for independent non-Gaussian treatment noise, we show that DML is always suboptimal by constructing new practical procedures with higher-order robustness to nuisance errors. These ACE procedures use structure-agnostic cumulant estimators to achieve r-th order insensitivity to nuisance errors whenever the (r+1)-st treatment cumulant is non-zero. We complement these core results with novel minimax guarantees for binary treatments in the partially linear model. Finally, using synthetic demand estimation experiments, we demonstrate the practical benefits of our higher-order robust estimators.
 
 # Summary. An optional shortened abstract.
 summary: |
