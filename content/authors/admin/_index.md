@@ -18,9 +18,9 @@ bio: My research interests broadly include machine learning, statistics and oper
 
 # Interests to show in About widget
 interests:
-  - Statistics (non-parametric estimation and causal inference)
-  - Operations research (experiment design, uncertainty in decision-making)
-  - Machine Learning (theory, algorithms, social aspects and causal ML)
+  - ML + Statistics: ML-empowered statistical estimation
+  - ML + Causality: identifiability theory and algorithms
+  - Statistics + LLM Eval: enhance statistical rigor and provide novel insights
 
 # Education to show in About widget
 education:
