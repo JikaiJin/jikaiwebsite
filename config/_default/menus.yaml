@@ -16,9 +16,10 @@ main:
   - name: News
     url: '#recent_news'
     weight: 20
-  - name: Blog
-    url: '/blog/'
-    weight: 40
+  # Blog is intentionally hidden until the prescriptive scaling paper is public.
+  # - name: Blog
+  #   url: '/blog/'
+  #   weight: 40
   - name: Experience
     url: '#experience'
     weight: 60

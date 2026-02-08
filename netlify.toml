@@ -21,7 +21,13 @@
     debug = true
 
 [[redirects]]
+  from = "/blog/*"
+  to = "/"
+  status = 302
+  force = true
+
+[[redirects]]
   from = "/post/prescriptive-scaling/"
-  to = "/blog/"
-  status = 301
+  to = "/"
+  status = 302
   force = true
