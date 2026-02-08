@@ -16,6 +16,9 @@ main:
   - name: News
     url: '#recent_news'
     weight: 20
+  - name: Blog
+    url: '#posts'
+    weight: 40
   - name: Experience
     url: '#experience'
     weight: 60
