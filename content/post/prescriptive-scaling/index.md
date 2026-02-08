@@ -1,6 +1,6 @@
 ---
 title: Prescriptive Scaling for Language Models
-subtitle: Beyond average trends: mapping compute budgets to reliable downstream performance after post-training
+subtitle: "Beyond average trends: mapping compute budgets to reliable downstream performance after post-training"
 
 # Summary for listings and search engines
 summary: Given a pre-training compute budget, we can predict the best downstream performance strong post-training can reliably attain, and detect when that boundary shifts.
