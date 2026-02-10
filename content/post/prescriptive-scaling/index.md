@@ -12,7 +12,7 @@ date: '2026-02-07T00:00:00Z'
 lastmod: '2026-02-07T00:00:00Z'
 
 # Is this an unpublished draft?
-draft: true
+draft: false
 
 # Enable LaTeX math on this page.
 math: true
