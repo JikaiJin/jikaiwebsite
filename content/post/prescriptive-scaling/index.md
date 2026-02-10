@@ -123,9 +123,9 @@ Math reasoning behaves differently. On MATH Lvl 5, later models exceed earlier f
 
 > **Key takeaway:** For most benchmarks, a compute-only sigmoid fitted on earlier releases still accurately predicts what later models can achieve. The exception is math reasoning, where the attainable frontier keeps advancing.
 
-Figure 5 below makes this visible for MATH Lvl 5: newly released open-weight models increasingly land above the earlier fitted boundary at the same pre-training compute level, especially at higher compute.
+Figure 2 below makes this visible for MATH Lvl 5: newly released open-weight models increasingly land above the earlier fitted boundary at the same pre-training compute level, especially at higher compute.
 
-![Figure 5. MATH Lvl 5 evaluation on newly released open-weight models.](figure5_main_paper.png)
+![Figure 2. MATH Lvl 5 evaluation on newly released open-weight models.](figure5_main_paper.png)
 
 Next, we connect this post-training view back to the classical pre-training scaling-law perspective.
 
@@ -141,9 +141,9 @@ This leads to a perhaps counterintuitive conclusion: if you want to predict how 
 
 > **Key takeaway:** Compute predicts potential; raw pretrained accuracy does not.
 
-Figure 4 highlights this contrast directly: pretrained scores can wobble (and sometimes decline) as compute increases, while the post-trained boundary forms a much cleaner, monotone envelope.
+Figure 3 highlights this contrast directly: pretrained scores can wobble (and sometimes decline) as compute increases, while the post-trained boundary forms a much cleaner, monotone envelope.
 
-![Figure 4. Pre-training vs post-training scaling laws.](figure4_refined.png)
+![Figure 3. Pre-training vs post-training scaling laws.](figure4_refined.png)
 
 With this lens, we can also revisit two recurring evaluation concerns: saturation and contamination.
 
@@ -157,21 +157,21 @@ A size-time boundary model quantifies this contrast: by the latest period, the e
 
 The two saturation views below show this difference visually: the MMLU-Pro plot retains a strong scale advantage, while the MATH Lvl 5 plot shows much tighter clustering near a ceiling for smaller models.
 
-![Saturation view on MMLU-Pro (knowledge-heavy).](v2_figure3_replication_mmlu_pro_large.png)
+![Figure 4. Saturation view on MMLU-Pro (knowledge-heavy).](v2_figure3_replication_mmlu_pro_large.png)
 
-![Saturation view on MATH Lvl 5 (reasoning-heavy).](v2_figure3_replication_math_lvl_5_large.png)
+![Figure 5. Saturation view on MATH Lvl 5 (reasoning-heavy).](v2_figure3_replication_math_lvl_5_large.png)
 
 ### 2) Contamination diagnostics without over-claiming
 
 For frontier models, we run a cross-benchmark shift test using MATH-500 and AIME-2025; the estimated post-AIME shift is positive but not statistically significant ($p = 0.15$). In other words, there is no strong aggregate signal of contamination-driven score inflation on AIME-2025, though modest effects cannot be ruled out.
 
-Figure 7b provides an intuitive check: if AIME-2025 scores were broadly inflated relative to MATH-500, we would expect a clear upward shift on AIME-2025 beyond what the shared compute trend would predict. Instead, the observed shift is small and not statistically decisive.
+Figure 7 provides an intuitive check: if AIME-2025 scores were broadly inflated relative to MATH-500, we would expect a clear upward shift on AIME-2025 beyond what the shared compute trend would predict. Instead, the observed shift is small and not statistically decisive.
 
 More broadly, this connects to recent work cautioning that training on benchmark tasks can confound evaluation signals (see [Dominguez-Olmedo et al., 2024](https://arxiv.org/abs/2407.07890)).
 
-![Figure 7a. Frontier scaling on GPQA Diamond.](figure7a_main_paper.png)
+![Figure 6. Frontier scaling on GPQA Diamond.](figure7a_main_paper.png)
 
-![Figure 7b. Frontier scaling for math benchmark comparison.](figure7b_main_paper.png)
+![Figure 7. Frontier scaling for math benchmark comparison.](figure7b_main_paper.png)
 
 These diagnostics are useful only if frontier estimation is practical at scale; next we discuss how to estimate boundaries under limited evaluation budgets.
 
@@ -204,9 +204,9 @@ $$
 
 **How it runs in practice.** Starting from an initial boundary estimate, we greedily add models that provide the largest "gain per unit cost" in $\Phi_{\lambda}(S)$ until the budget is exhausted. Importantly, the selection depends only on metadata like $(z_i, c_i)$, so you can decide what to evaluate before spending any compute.
 
-Figure 6 summarizes the payoff: estimation error falls sharply as budget increases, because a small, well-spread subset already captures most of the curve shape; beyond that, additional evaluations become largely redundant.
+Figure 8 summarizes the payoff: estimation error falls sharply as budget increases, because a small, well-spread subset already captures most of the curve shape; beyond that, additional evaluations become largely redundant.
 
-![Figure 6. Performance of balanced I-optimal design versus budget.](figure6_main_paper.png)
+![Figure 8. Performance of balanced I-optimal design versus budget.](figure6_main_paper.png)
 
 > **Key takeaway:** A small, well-spread subset often recovers most of the frontier: about 20% of the full evaluation budget is typically enough (and sometimes about 5% suffices).
 
