@@ -27,12 +27,6 @@
   force = true
 
 [[redirects]]
-  from = "/blog/"
-  to = "/blog/prescriptive-scaling/"
-  status = 301
-  force = true
-
-[[redirects]]
   from = "/blog/prescriptive-scaling"
   to = "/blog/prescriptive-scaling/"
   status = 301
