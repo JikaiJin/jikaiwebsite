@@ -27,10 +27,21 @@
   force = true
 
 [[redirects]]
+  from = "/blog/prescriptive-scaling/"
+  to = "/prescriptive-scaling/"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/blog/prescriptive-scaling/*"
   to = "/prescriptive-scaling/:splat"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/prescriptive-scaling/"
+  to = "/blog/prescriptive-scaling/"
+  status = 200
 
 [[redirects]]
   from = "/prescriptive-scaling/*"
