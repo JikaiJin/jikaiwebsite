@@ -22,6 +22,42 @@
 
 [[redirects]]
   from = "/post/prescriptive-scaling/"
-  to = "/blog/"
+  to = "/blog/prescriptive-scaling/"
   status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/"
+  to = "/blog/prescriptive-scaling/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/prescriptive-scaling"
+  to = "/blog/prescriptive-scaling/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/prescriptive-scaling/assets/*"
+  to = "/blog/assets/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/blog/prescriptive-scaling/blog_figs/*"
+  to = "/blog/blog_figs/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/blog/prescriptive-scaling/vite.svg"
+  to = "/blog/vite.svg"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/blog/prescriptive-scaling/"
+  to = "/blog/"
+  status = 200
   force = true
