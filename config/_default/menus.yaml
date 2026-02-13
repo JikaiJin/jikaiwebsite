@@ -17,7 +17,7 @@ main:
     url: '#recent_news'
     weight: 20
   - name: Blog
-    url: '/blog/prescriptive-scaling/'
+    url: '/prescriptive-scaling/'
     weight: 40
   - name: Experience
     url: '#experience'
