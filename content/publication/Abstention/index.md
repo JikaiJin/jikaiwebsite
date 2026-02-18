@@ -35,7 +35,7 @@ abstract: Policy learning algorithms are regularly leveraged in domains such as 
 # Summary. An optional shortened abstract.
 summary: We study policy learning with the ability to abstain, and demonstrate its usefulness in ensuring safety.
 
-tags: [Causal machine learning] [Econometrics] [Machine learning theory]
+tags: [Causal machine learning, Econometrics, Machine learning theory]
 
 # Display this page in the Featured widget?
 featured: true
