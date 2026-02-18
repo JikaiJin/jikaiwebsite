@@ -39,6 +39,8 @@ featured: false
 links:
   - name: ArXiv
     url: https://arxiv.org/abs/2602.15327
+  - name: Blog
+    url: https://jkjin.com/prescriptive-scaling/
 
 url_pdf: ''
 url_code: ''
