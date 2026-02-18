@@ -41,6 +41,8 @@ links:
     url: https://arxiv.org/abs/2602.15327
   - name: Blog
     url: https://jkjin.com/prescriptive-scaling/
+  - name: Dataset
+    url: https://huggingface.co/datasets/hlzhang109/proteus-2k
 
 url_pdf: ''
 url_code: ''
