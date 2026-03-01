@@ -362,7 +362,7 @@ This leads to a perhaps counterintuitive conclusion: if you want to predict how 
 
 With this lens, we can also revisit two recurring evaluation problems: saturation and contamination.`},{id:"case-studies",title:"Two Case Studies: Saturation and Contamination",content:`### 1) Saturation is task-dependent, not universal
 
-Recent claims that [hypothesis](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5877662)) indicates a saturation pattern on some benchmarks, but our analysis suggests the picture is strongly task-dependent. Replication on [Open LLM Leaderboard v2](https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard) contrasts a knowledge-heavy benchmark (MMLU-Pro) with a reasoning benchmark (MATH Lvl 5): MATH Lvl 5 appears more saturated for small models, while MMLU-Pro remains more scale-dominated.
+Recent work, including the [hypothesis](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5877662), indicates a saturation pattern on some benchmarks, but our analysis suggests the picture is strongly task-dependent. Replication on [Open LLM Leaderboard v2](https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard) contrasts a knowledge-heavy benchmark (MMLU-Pro) with a reasoning benchmark (MATH Lvl 5): MATH Lvl 5 appears more saturated for small models, while MMLU-Pro remains more scale-dominated.
 
 A size-time boundary model quantifies this contrast: by the latest period, the estimated attainable score for a 13B model reaches about 0.94 on MATH Lvl 5 but only about 0.52 on MMLU-Pro. Small models have nearly closed the gap on math reasoning but remain far from the frontier on knowledge tasks.
 
