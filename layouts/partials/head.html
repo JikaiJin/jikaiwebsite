@@ -1,10 +1,27 @@
 {{- /*
-  head.html — MUST contain the pre-paint theme-toggle inline script as the
-  FIRST child of <head>, BEFORE any <link rel="stylesheet"> or <meta>.
-  This prevents FOUC (flash of unstyled content) when a reader has dark
-  mode preference set via localStorage. Per acceptance gate A7 (head-order).
+  head.html — pre-paint theme-select inline script MUST be first child of
+  <head>, before any <link rel="stylesheet"> or <meta>. FOUC-safe.
+  Precedence: localStorage toggle > clock (06:00–18:00 = light, else dark)
+  > prefers-color-scheme (JS-disabled fallback only) > light default.
+  Re-checks on visibilitychange so an open tab crosses the 06/18 boundary
+  correctly, but only when no explicit user toggle is set.
 */ -}}
-<script>(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script>(function(){
+  var r=document.documentElement;
+  function pickByClock(){var h=new Date().getHours();return(h>=6&&h<18)?'light':'dark';}
+  try{
+    var t=localStorage.getItem('theme');
+    if(t==='light'||t==='dark'){r.setAttribute('data-theme',t);return;}
+  }catch(e){}
+  r.setAttribute('data-theme',pickByClock());
+  r.setAttribute('data-theme-source','clock');
+  document.addEventListener('visibilitychange',function(){
+    if(document.hidden)return;
+    try{if(localStorage.getItem('theme'))return;}catch(e){}
+    var next=pickByClock();
+    if(r.getAttribute('data-theme')!==next)r.setAttribute('data-theme',next);
+  });
+})();</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>

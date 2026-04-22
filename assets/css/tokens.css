@@ -111,14 +111,14 @@
   --space-8: 3rem;
   --space-12: 4.5rem;
 
-  /* ---------- Light mode palette ---------- */
-  --bg:             #F5F1EB;
+  /* ---------- Light mode palette (time-theme v1 — day) ---------- */
+  --bg:             #F5F2EC;    /* warm cream, slightly warmer than neutral */
   --bg-subtle:      #EFEAE1;
-  --ink:            #1C1B18;
-  --ink-muted:      #6B6761;
-  --accent:         #A0522D;    /* terracotta — links, rule accents */
-  --accent-hover:   #6E3518;    /* Arch-1: 1.71:1 self-contrast vs --accent */
-  --accent-visited: #7A5B3E;
+  --ink:            #171212;    /* deep near-black with burgundy undertone */
+  --ink-muted:      #6B6863;    /* text-muted */
+  --accent:         #6B1F2A;    /* oxblood / burgundy — links */
+  --accent-hover:   #4A1520;    /* darker burgundy (~13:1 on bg, strong hover) */
+  --accent-visited: #8A4550;    /* muted burgundy */
   --rule:           #E4DFD7;
   --selection:      #E8D9C4;
 
@@ -129,28 +129,34 @@
   --toc-gap:   48px;
 }
 
+/* Dark mode via prefers-color-scheme — applies only when JS is disabled.
+   When JS is enabled, head.html pre-paint script always sets data-theme
+   explicitly (either from localStorage or from clock), which bypasses this
+   @media rule via the :not([data-theme='light']) selector. This is
+   intentional per the time-theme plan: clock > prefers-color-scheme. */
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme='light']) {
-    --bg:             #1A1815;
-    --bg-subtle:      #232019;
-    --ink:            #E8E3D8;
-    --ink-muted:      #9A948A;
-    --accent:         #D18B5F;
-    --accent-hover:   #A66B43;   /* Crit-1: 1.58:1 self-contrast vs --accent */
-    --accent-visited: #B9906F;
+  :root:not([data-theme='light']):not([data-theme='dark']) {
+    --bg:             #161513;
+    --bg-subtle:      #1E1C19;
+    --ink:            #E8E2D2;
+    --ink-muted:      #8A8578;
+    --accent:         #D4A55C;
+    --accent-hover:   #E6BC7A;
+    --accent-visited: #B89878;
     --rule:           #332F28;
     --selection:      #3D342A;
   }
 }
 
+/* Dark mode via explicit data-theme — set by clock, toggle, or localStorage */
 :root[data-theme='dark'] {
-  --bg:             #1A1815;
-  --bg-subtle:      #232019;
-  --ink:            #E8E3D8;
-  --ink-muted:      #9A948A;
-  --accent:         #D18B5F;
-  --accent-hover:   #A66B43;
-  --accent-visited: #B9906F;
+  --bg:             #161513;
+  --bg-subtle:      #1E1C19;
+  --ink:            #E8E2D2;
+  --ink-muted:      #8A8578;
+  --accent:         #D4A55C;    /* amber / dark-mode link */
+  --accent-hover:   #E6BC7A;    /* brighter amber — hover lifts toward light */
+  --accent-visited: #B89878;    /* muted amber */
   --rule:           #332F28;
   --selection:      #3D342A;
 }
