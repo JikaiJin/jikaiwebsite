@@ -68,12 +68,11 @@
   --font-nav: 'GT Walsheim', 'GT America', 'Space Grotesk', 'Inter',
               -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
 
-  /* Hero palette tokens (additive; the existing --bg/--ink/--ink-muted/
-     --accent remain authoritative for post and publications pages). */
-  --color-ink:    #1a1a1a;
-  --color-muted:  #6b6b6b;
-  --color-accent: #b5532a;
-  --color-bg:     #f3efe6;
+  /* Note: earlier --color-ink / --color-muted / --color-accent / --color-bg
+     tokens were removed in the time-theme update. Hero partial inline
+     styles use var(--color-X, var(--ink/--accent/--ink-muted)) with the
+     fallback form; deleting the --color-* definitions makes the fallback
+     take effect in BOTH light and dark modes consistently. */
 
   /* ---------- Type scale (17px base, 1.2 modular third) ---------- */
   --fs-caption: 0.833rem;   /* 14.17px — figure captions, metadata */
@@ -466,7 +465,7 @@ article.no-section-numbers h2::before { content: none; }
   font-size: 0.95rem;
   letter-spacing: -0.005em;
 }
-.site-header nav a { color: var(--color-muted); }
+.site-header nav a { color: var(--ink-muted); }
 /* Brand (nav-logo) — non-italic serif, matches body family for quiet chrome. */
 .site-header .brand {
   font-family: var(--font-body);
@@ -474,7 +473,7 @@ article.no-section-numbers h2::before { content: none; }
   font-size: 0.95rem;
   letter-spacing: -0.005em;
   font-style: normal;
-  color: var(--color-ink);
+  color: var(--ink);
   text-decoration: none;
 }
 .site-header nav {
