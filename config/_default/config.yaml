@@ -21,8 +21,10 @@ removePathAccents: true
 
 module:
   imports:
+    # wowchemy-cms/v5 retained for the /admin/ Netlify-CMS route (decision A in cutover).
+    # The Wowchemy theme module (wowchemy/v5) is intentionally removed — the new
+    # in-repo theme under layouts/ supersedes it. See .omc/plans/cutover-v1.md.
     - path: github.com/wowchemy/wowchemy-hugo-modules/wowchemy-cms/v5
-    - path: github.com/wowchemy/wowchemy-hugo-modules/wowchemy/v5
 
 ############################
 ## ADVANCED
@@ -42,7 +44,10 @@ permalinks:
   publication_types: '/publication-type/:slug/'
 disableAliases: true
 outputs:
-  home: [HTML, RSS, JSON, WebAppManifest, headers, redirects]
+  # 'headers' and 'redirects' output formats were defined in the Wowchemy
+  # theme module (now removed). Redirects + headers are now managed in
+  # netlify.toml directly; no generated _headers / _redirects files needed.
+  home: [HTML, RSS, JSON, WebAppManifest]
   section: [HTML, RSS]
 imaging:
   resampleFilter: Lanczos
