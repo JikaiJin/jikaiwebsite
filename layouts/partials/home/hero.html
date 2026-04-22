@@ -26,8 +26,10 @@
           margin-left: -0.03em;
           font-variation-settings: 'SOFT' 50, 'opsz' 144;
           color: var(--color-ink, var(--ink));">{{ or $author.Params.title site.Title }}</h1>
-    <img class="name-cn" src="/jin-jikai-lishu.png" alt="金及凱"
+    <img class="name-cn name-cn--light" src="/jin-jikai-lishu.png" alt="金及凱"
          style="height: 3rem; width: auto; opacity: 0.85;">
+    <img class="name-cn name-cn--dark" src="/jin-jikai-lishu-dark.png" alt="金及凱"
+         style="height: 3rem; width: auto; opacity: 0.9;">
   </div>
 
   <p class="subtitle" style="
@@ -97,4 +99,16 @@
   .links a:hover { color: var(--color-accent, var(--accent)) !important;
                    border-bottom-color: var(--color-accent, var(--accent)) !important; }
   .bio a { color: var(--color-accent, var(--accent)); }
+
+  /* Theme-aware lishu PNG: dark-ink version for light bg, cream version for dark bg.
+     The pre-paint script in head.html always sets data-theme before first paint, so
+     these rules alone cover all JS-enabled paths. The @media block below is a fallback
+     for JS-disabled readers using prefers-color-scheme. */
+  .name-cn--dark { display: none; }
+  [data-theme="dark"] .name-cn--light { display: none; }
+  [data-theme="dark"] .name-cn--dark { display: inline-block; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]):not([data-theme="dark"]) .name-cn--light { display: none; }
+    :root:not([data-theme="light"]):not([data-theme="dark"]) .name-cn--dark { display: inline-block; }
+  }
 </style>
