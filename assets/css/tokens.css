@@ -1,0 +1,552 @@
+/* ============================================================
+   jkjin.com — design tokens v2 (mock preview build)
+   Framework-agnostic. Paste into any renderer.
+
+   PREVIEW NOTE: this file uses Google Fonts CDN for fast mock
+   preview. For production, replace the @import below with the
+   self-hosted @font-face blocks documented in design-tokens-v1.md
+   and fetch woff2 files per A5.1 (pinned GitHub releases +
+   SHA256 checksums in fonts/CHECKSUMS.txt).
+   ============================================================ */
+
+/* Preview fonts loaded from Google Fonts CDN.
+   - Iowan Old Style — body reading surface (system font on macOS/iOS;
+     NOT loaded via webfont; Windows/Linux readers fall back to Palatino
+     Linotype / Charter / Georgia via the --font-serif stack).
+   - Inter — general UI (headings, card titles, metadata).
+   - JetBrains Mono — code.
+   - Fraunces — PREVIEW SUBSTITUTE for GT Alpina (used on display name).
+     Production must license and self-host GT Alpina from
+     https://www.grillitype.com/typeface/gt-alpina.
+   - Space Grotesk — PREVIEW SUBSTITUTE for a grotesque family (used on nav).
+     Production may license GT Walsheim / GT America or similar; swap the
+     --font-nav token declaration below. */
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&family=Inter:wght@100..900&family=JetBrains+Mono:wght@100..800&family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Space+Grotesk:wght@300..700&family=Noto+Serif+SC:wght@300;400;500&display=swap');
+
+/* ---- Fallback @font-face with metric overrides (Crit-10) ----
+   Inter is webfont-loaded; a metric-matched local fallback reduces CLS
+   on first paint. Iowan Old Style is a system font with no webfont
+   counterpart, so no fallback declaration is needed for it — the
+   --font-serif stack below cascades directly to Palatino/Charter/Georgia
+   on platforms without Iowan. */
+@font-face {
+  font-family: 'Inter Fallback';
+  src: local('Arial'), local('Helvetica Neue'), local('Segoe UI');
+  size-adjust: 107%;
+  ascent-override: 90%;
+  descent-override: 22%;
+  line-gap-override: 0%;
+}
+
+:root {
+  /* ---------- Font families ---------- */
+  /* Body reading surface. Iowan Old Style is Apple-only (macOS 10.10+,
+     iOS 7+). Windows/Linux visitors cascade to Palatino Linotype /
+     Charter / Georgia. All four are editorial transitional serifs with
+     similar measure and proportion. */
+  --font-serif: 'Iowan Old Style', 'Palatino Linotype',
+                'Charter', Georgia, Cambria, 'Times New Roman', Times, serif;
+  --font-sans:  'Inter', 'Inter Fallback', -apple-system, BlinkMacSystemFont,
+                'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono:  'JetBrains Mono', ui-monospace, 'SF Mono', Menlo,
+                Consolas, 'Liberation Mono', monospace;
+  --font-math:  'STIX Two Math', 'Latin Modern Math', 'Cambria Math', serif;
+
+  /* Display face — used on the name-en ("Jikai Jin") in the hero. */
+  --font-display: 'Fraunces', 'Noto Serif SC', serif;
+
+  /* Body face — used on bio, subtitle, hero links, and by convention any
+     long-form prose in .grid-page pages. Source Serif 4 is webfont-loaded;
+     Noto Serif SC provides fallback coverage for CJK glyphs mixed inline. */
+  --font-body: 'Source Serif 4', 'Noto Serif SC', Georgia, serif;
+
+  /* UI face — used on top-nav (site-header) + general sans chrome.
+     Inter is the primary. */
+  --font-ui: 'Inter', -apple-system, system-ui, sans-serif;
+
+  /* Navigation / grotesque-sans alias (retained for .venue small-caps). */
+  --font-nav: 'GT Walsheim', 'GT America', 'Space Grotesk', 'Inter',
+              -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+
+  /* Hero palette tokens (additive; the existing --bg/--ink/--ink-muted/
+     --accent remain authoritative for post and publications pages). */
+  --color-ink:    #1a1a1a;
+  --color-muted:  #6b6b6b;
+  --color-accent: #b5532a;
+  --color-bg:     #f3efe6;
+
+  /* ---------- Type scale (17px base, 1.2 modular third) ---------- */
+  --fs-caption: 0.833rem;   /* 14.17px — figure captions, metadata */
+  --fs-small:   0.875rem;   /* 14.88px — footnotes, TOC items */
+  --fs-body:    1rem;       /* 17px base — reading surface */
+  --fs-lede:    1.125rem;   /* 19.13px — post ledes, pull-quotes */
+  --fs-h4:      1.125rem;   /* 19.13px */
+  --fs-h3:      1.35rem;    /* 22.95px */
+  --fs-h2:      1.7rem;     /* 28.90px */
+  --fs-h1:      2.07rem;    /* 35.20px */
+  --fs-display: 2.488rem;   /* 42.30px — homepage hero only */
+
+  /* ---------- Rhythm ---------- */
+  --lh-tight:   1.15;       /* h1, h2 */
+  --lh-snug:    1.3;        /* h3, h4, lede */
+  --lh-body:    1.65;       /* reading */
+  --lh-loose:   1.8;        /* captions, TOC */
+
+  --measure:      65ch;     /* reading column max-width */
+  --measure-wide: 78ch;     /* homepage grid rows */
+  --measure-code: 80ch;     /* code block max-width */
+
+  /* ---------- Weights ---------- */
+  --fw-regular:  400;
+  --fw-medium:   500;
+  --fw-semibold: 600;
+
+  /* ---------- Spacing ---------- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-8: 3rem;
+  --space-12: 4.5rem;
+
+  /* ---------- Light mode palette ---------- */
+  --bg:             #F5F1EB;
+  --bg-subtle:      #EFEAE1;
+  --ink:            #1C1B18;
+  --ink-muted:      #6B6761;
+  --accent:         #A0522D;    /* terracotta — links, rule accents */
+  --accent-hover:   #6E3518;    /* Arch-1: 1.71:1 self-contrast vs --accent */
+  --accent-visited: #7A5B3E;
+  --rule:           #E4DFD7;
+  --selection:      #E8D9C4;
+
+  /* ---------- Layout ---------- */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --toc-width: 220px;
+  --toc-gap:   48px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --bg:             #1A1815;
+    --bg-subtle:      #232019;
+    --ink:            #E8E3D8;
+    --ink-muted:      #9A948A;
+    --accent:         #D18B5F;
+    --accent-hover:   #A66B43;   /* Crit-1: 1.58:1 self-contrast vs --accent */
+    --accent-visited: #B9906F;
+    --rule:           #332F28;
+    --selection:      #3D342A;
+  }
+}
+
+:root[data-theme='dark'] {
+  --bg:             #1A1815;
+  --bg-subtle:      #232019;
+  --ink:            #E8E3D8;
+  --ink-muted:      #9A948A;
+  --accent:         #D18B5F;
+  --accent-hover:   #A66B43;
+  --accent-visited: #B9906F;
+  --rule:           #332F28;
+  --selection:      #3D342A;
+}
+
+/* ============================================================
+   Baseline element styling
+   ============================================================ */
+
+html {
+  font-size: 17px;
+  -webkit-text-size-adjust: 100%;
+  font-feature-settings: 'kern', 'liga', 'calt';
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-serif);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-body);
+  color: var(--ink);
+  background: var(--bg);
+  margin: 0;
+  transition: background 200ms ease, color 200ms ease;
+}
+
+/* Crit-7: oldstyle-nums scoped to reading contexts only */
+article, .prose {
+  font-variant-numeric: oldstyle-nums proportional-nums;
+}
+
+/* Headings: Inter, medium weight, editorial-quiet */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-tight);
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-top: var(--space-8);
+  margin-bottom: var(--space-3);
+}
+h1 { font-size: var(--fs-h1); letter-spacing: -0.02em; }
+h2 { font-size: var(--fs-h2); letter-spacing: -0.015em; }
+h3 { font-size: var(--fs-h3); line-height: var(--lh-snug); }
+h4 { font-size: var(--fs-h4); line-height: var(--lh-snug);
+     font-weight: var(--fw-semibold); }
+
+/* Reading column */
+article, .prose {
+  max-width: var(--measure);
+  margin-inline: auto;
+  padding-inline: var(--space-5);
+}
+
+/* Paragraphs */
+p {
+  margin-block: var(--space-4);
+  hyphens: auto;
+  overflow-wrap: break-word;
+}
+
+/* Lede (first paragraph after h1 or class-marked) */
+.lede, article > p:first-of-type {
+  font-size: var(--fs-lede);
+  line-height: var(--lh-snug);
+  color: var(--ink);
+}
+
+/* Links: underline offset + thin, no color-only links */
+a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  text-decoration-color: color-mix(in oklab, var(--accent) 55%, transparent);
+  transition: text-decoration-color 120ms ease, color 120ms ease;
+}
+/* Crit-8: color-mix(in oklab) requires Safari 16.4+ / Chrome 111+ / Firefox 113+ — fine for 2026 */
+a:hover {
+  color: var(--accent-hover);
+  text-decoration-color: var(--accent-hover);
+}
+a:visited { color: var(--accent-visited); }
+
+@media (prefers-reduced-motion: reduce) {
+  a, body { transition: none; }
+}
+
+/* Code */
+code, pre, kbd, samp {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+}
+:not(pre) > code {
+  background: var(--bg-subtle);
+  padding: 0.1em 0.35em;
+  border-radius: var(--radius-sm);
+}
+pre {
+  background: var(--bg-subtle);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-md);
+  padding: var(--space-4) var(--space-5);
+  overflow-x: auto;
+  line-height: 1.55;
+  max-width: var(--measure-code);
+  margin-inline: auto;
+}
+
+/* Math containers */
+.math, mjx-container, .katex { font-family: var(--font-math); }
+
+/* Hairline rules */
+hr {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  margin-block: var(--space-8);
+}
+
+/* Blockquote */
+blockquote {
+  margin-block: var(--space-5);
+  margin-inline: 0;
+  padding-inline: var(--space-5);
+  border-left: 2px solid var(--rule);
+  color: var(--ink-muted);
+  font-style: italic;
+}
+
+/* Figures */
+figure {
+  margin: var(--space-6) 0;
+}
+figure img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-inline: auto;
+}
+figure figcaption {
+  font-family: var(--font-sans);
+  font-size: var(--fs-caption);
+  line-height: var(--lh-loose);
+  color: var(--ink-muted);
+  margin-top: var(--space-2);
+  text-align: center;
+}
+
+/* Lists */
+ul, ol { padding-inline-start: var(--space-5); }
+li { margin-block: var(--space-2); }
+
+/* Selection */
+::selection { background: var(--selection); color: var(--ink); }
+
+/* ============================================================
+   Signature detail — auto § section numbering on h2
+   ============================================================ */
+article { counter-reset: section; }
+article h2 { counter-increment: section; position: relative; }
+article h2::before {
+  content: '§ ' counter(section);
+  display: block;
+  font-family: var(--font-sans);
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-caption);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: var(--space-2);
+}
+article.no-section-numbers h2::before { content: none; }
+
+/* ============================================================
+   §3.5 Markup contract adopters wrap this way:
+     <div class="post-layout">
+       <article>...content...</article>
+       <nav class="toc">...</nav>        // desktop
+       OR
+       <details class="toc">...</details> // tablet/mobile
+     </div>
+   ============================================================ */
+
+/* Default: single-column article */
+.post-layout {
+  max-width: var(--measure);
+  margin-inline: auto;
+  padding-inline: var(--space-5);
+}
+.post-layout > article {
+  padding-inline: 0;
+}
+
+/* Desktop (>=1280px): right-margin sticky TOC in a grid */
+@media (min-width: 1280px) {
+  .post-layout {
+    display: grid;
+    grid-template-columns: 1fr minmax(0, var(--measure)) var(--toc-width) 1fr;
+    column-gap: var(--toc-gap);
+    max-width: none;
+    padding-inline: 0;
+  }
+  .post-layout > article { grid-column: 2; padding-inline: 0; }
+  .post-layout > .toc {
+    grid-column: 3;
+    position: sticky;
+    top: var(--space-8);
+    align-self: start;
+    max-height: calc(100vh - var(--space-12));
+    overflow-y: auto;
+    font-family: var(--font-sans);
+    font-size: var(--fs-small);
+    line-height: var(--lh-loose);
+    color: var(--ink-muted);
+    border-left: 1px solid var(--rule);
+    padding-left: var(--space-4);
+  }
+  .post-layout > .toc h3 {
+    font-size: var(--fs-caption);
+    font-weight: var(--fw-medium);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-muted);
+    margin-top: 0;
+  }
+  .post-layout > .toc ol { list-style: none; padding-inline-start: 0; }
+  .post-layout > .toc li { margin-block: var(--space-2); }
+  .post-layout > .toc a {
+    color: var(--ink-muted);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+  }
+  .post-layout > .toc a:hover,
+  /* Crit-9: aria-current styling is dormant until scroll-spy IntersectionObserver
+     is added in the templates plan. Left in place to avoid re-visits. */
+  .post-layout > .toc a[aria-current='true'] {
+    color: var(--accent);
+  }
+}
+
+/* Tablet + mobile (<1280px): inline collapsible TOC at article top */
+@media (max-width: 1279.98px) {
+  details.toc {
+    max-width: var(--measure);
+    margin: var(--space-5) auto var(--space-8);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius-md);
+    padding: var(--space-3) var(--space-4);
+    font-family: var(--font-sans);
+    font-size: var(--fs-small);
+    color: var(--ink-muted);
+  }
+  details.toc > summary {
+    cursor: pointer;
+    font-weight: var(--fw-medium);
+    color: var(--ink);
+    font-size: var(--fs-small);
+    letter-spacing: 0.02em;
+  }
+  details.toc ol { list-style: none; padding-inline-start: var(--space-4); margin-block: var(--space-3); }
+  details.toc li { margin-block: var(--space-1); }
+  details.toc a { color: var(--ink-muted); text-decoration: none; }
+  details.toc a:hover { color: var(--accent); }
+}
+
+/* Mobile (<640px): TOC closed by default — use `open` attr above 640px */
+@media (max-width: 639.98px) {
+  details.toc:not([data-force-open]) { }
+}
+
+/* ============================================================
+   Grid-page variant (homepage + publications)
+   ============================================================ */
+.grid-page {
+  max-width: var(--measure-wide);
+  margin-inline: auto;
+  padding-inline: var(--space-5);
+  padding-block: var(--space-8);
+  font-family: var(--font-serif);
+}
+.grid-page .card-title {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-lede);
+  line-height: var(--lh-snug);
+  margin: 0;
+}
+.grid-page .card-meta {
+  font-family: var(--font-sans);
+  font-size: var(--fs-caption);
+  color: var(--ink-muted);
+  letter-spacing: 0.02em;
+}
+
+/* ============================================================
+   Site chrome
+   ============================================================ */
+.site-header {
+  max-width: var(--measure-wide);
+  margin-inline: auto;
+  padding: var(--space-5) var(--space-5) var(--space-4);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-5);
+  /* Nav items use --font-ui (Inter); brand below overrides to serif. */
+  font-family: var(--font-ui);
+  font-size: 0.95rem;
+  letter-spacing: -0.005em;
+}
+.site-header nav a { color: var(--color-muted); }
+/* Brand (nav-logo) — non-italic serif, matches body family for quiet chrome. */
+.site-header .brand {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: -0.005em;
+  font-style: normal;
+  color: var(--color-ink);
+  text-decoration: none;
+}
+.site-header nav {
+  display: flex;
+  gap: var(--space-5);
+  flex-wrap: wrap;
+}
+.site-header nav a {
+  color: var(--ink-muted);
+  text-decoration: none;
+}
+.site-header nav a:hover { color: var(--accent); }
+
+.site-footer {
+  max-width: var(--measure-wide);
+  margin: var(--space-12) auto var(--space-6);
+  padding: var(--space-5);
+  border-top: 1px solid var(--rule);
+  font-family: var(--font-sans);
+  font-size: var(--fs-caption);
+  color: var(--ink-muted);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+/* Name — used for "Jikai Jin" on the homepage hero.
+   Fraunces italic with the SOFT variation axis; falls back to
+   PP Editorial New (commercial — license if you want it) then serif. */
+.name {
+  font-family: 'Source Serif 4', serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 4.5rem;
+  letter-spacing: -0.02em;
+}
+
+/* Theme toggle (simple text button) */
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-md);
+  color: var(--ink-muted);
+  font-family: var(--font-nav);
+  font-size: var(--fs-caption);
+  padding: 0.25em 0.75em;
+  cursor: pointer;
+  transition: border-color 120ms ease, color 120ms ease;
+}
+.theme-toggle:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* ============================================================
+   Print styles (Crit-11)
+   ============================================================ */
+@media print {
+  :root {
+    --bg: #FFFFFF;
+    --ink: #000000;
+    --ink-muted: #333333;
+    --accent: #000000;
+    --rule: #CCCCCC;
+  }
+  body { background: #FFFFFF; color: #000000; }
+  .site-header nav, .site-footer, details.toc, .post-layout > .toc,
+  .theme-toggle { display: none !important; }
+  .post-layout { display: block; max-width: none; }
+  .post-layout > article { max-width: 65ch; margin-inline: auto; }
+  a { color: #000; text-decoration: underline; }
+  a[href^="http"]::after {
+    content: ' (' attr(href) ')';
+    font-size: 0.85em;
+    color: #555;
+  }
+  article h2::before { color: #555; }
+  pre, code { border: 1px solid #CCC; background: #F5F5F5; }
+  figure, pre { break-inside: avoid; }
+}

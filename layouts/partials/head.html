@@ -1,0 +1,22 @@
+{{- /*
+  head.html — MUST contain the pre-paint theme-toggle inline script as the
+  FIRST child of <head>, BEFORE any <link rel="stylesheet"> or <meta>.
+  This prevents FOUC (flash of unstyled content) when a reader has dark
+  mode preference set via localStorage. Per acceptance gate A7 (head-order).
+*/ -}}
+<script>(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+{{- with .Description | default .Params.summary | default .Summary }}
+<meta name="description" content="{{ . | plainify | truncate 170 }}">
+{{- end }}
+<link rel="canonical" href="{{ .Permalink }}">
+{{- with resources.Get "css/tokens.css" | fingerprint "sha256" }}
+<link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">
+{{- end }}
+{{- if .Params.math }}
+{{- with resources.Get "css/math.css" | fingerprint "sha256" }}
+<link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">
+{{- end }}
+{{- end }}
