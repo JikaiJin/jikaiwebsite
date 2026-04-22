@@ -1,0 +1,86 @@
+{{ define "main" -}}
+{{- $pubs := where site.RegularPages "Section" "publication" -}}
+{{- $pubs = sort $pubs "Date" "desc" -}}
+<article class="publications-list grid-page" style="max-width: 920px; margin-inline: auto; padding-inline: var(--space-5); padding-block: var(--space-6) var(--space-8);">
+  <header style="margin-bottom: var(--space-6); padding-bottom: var(--space-5); border-bottom: 1px solid var(--rule);">
+    <h1 style="font-family: 'Fraunces', 'GT Alpina', serif; font-weight: 500;
+         font-size: 2.5rem; line-height: 1.1; letter-spacing: -0.02em;
+         margin: 0 0 var(--space-2);">Publications</h1>
+    <p style="font-family: var(--font-serif); color: var(--ink-muted);
+         font-size: var(--fs-body); margin: 0;">Full list, most recent first. Click a title for abstract + BibTeX.</p>
+  </header>
+
+  {{- /* Group by year using a map keyed on year string */ -}}
+  {{- $byYear := dict -}}
+  {{- range $pubs -}}
+    {{- $y := .Date.Format "2006" -}}
+    {{- $existing := index $byYear $y | default slice -}}
+    {{- $byYear = merge $byYear (dict $y (append . $existing)) -}}
+  {{- end -}}
+  {{- $years := slice -}}
+  {{- range $y, $_ := $byYear }}{{ $years = $years | append $y }}{{ end -}}
+  {{- $years = sort $years "value" "desc" -}}
+
+  {{- range $year := $years }}
+  <section class="pub-year" style="margin-block: var(--space-8);">
+    <h2 style="font-family: 'Fraunces', 'GT Alpina', serif; font-weight: 500;
+         font-size: 1.75rem; line-height: 1.2; letter-spacing: -0.01em;
+         color: var(--ink); margin: 0 0 var(--space-4);
+         padding-bottom: var(--space-2); border-bottom: 1px solid var(--rule);
+         font-variant-numeric: lining-nums;">{{ $year }}</h2>
+    <ol class="pub-list" style="list-style: none; padding: 0; margin: 0;">
+      {{- range index $byYear $year }}
+      {{- $page := . }}
+      <li style="display: grid; grid-template-columns: 1fr auto;
+           gap: var(--space-5); padding-block: var(--space-4);
+           border-top: 1px solid var(--rule); align-items: start;">
+        <div>
+          <h3 class="publication-title" style="font-family: 'Fraunces', 'GT Alpina', serif;
+               font-weight: 500; font-size: 1.2rem; letter-spacing: -0.015em;
+               line-height: 1.3; margin: 0;">
+            <a href="{{ .RelPermalink }}" style="color: var(--ink); text-decoration: none;">{{ .Title }}</a>
+          </h3>
+          {{- with .Params.authors }}
+          <div class="pub-authors" style="font-family: var(--font-serif);
+               font-size: var(--fs-small); color: var(--ink);
+               margin: var(--space-2) 0 var(--space-1);">
+            {{- range $i, $a := . -}}
+              {{- if $i }}, {{ end -}}
+              {{- if or (eq $a "admin") (eq $a "Jikai Jin") -}}
+                <span class="self" style="font-weight: 600;">Jikai Jin</span>
+              {{- else -}}
+                {{ $a }}
+              {{- end -}}
+            {{- end -}}
+          </div>
+          {{- end }}
+          {{- with .Params.publication_short | default .Params.publication }}
+          <div class="venue" style="font-variant: small-caps; letter-spacing: 0.05em;
+               font-size: 0.82rem; font-family: var(--font-nav);
+               color: var(--ink-muted);">{{ . | markdownify }}</div>
+          {{- end }}
+        </div>
+        <div class="pub-actions" style="display: flex; flex-direction: column;
+             gap: var(--space-1); font-family: var(--font-ui); font-size: 0.82rem;
+             align-items: flex-end; white-space: nowrap;">
+          {{- with .Params.url_pdf }}<a href="{{ . }}" style="color: var(--accent); text-decoration: none;">PDF</a>{{ end }}
+          {{- if fileExists (printf "%s/cite.bib" $page.File.Dir) }}
+          <a href="{{ .RelPermalink }}cite.bib" style="color: var(--accent); text-decoration: none;">cite</a>
+          {{- end }}
+          {{- with .Params.url_code }}<a href="{{ . }}" style="color: var(--accent); text-decoration: none;">code</a>{{ end }}
+          {{- with (index .Params.links 0) }}<a href="{{ .url }}" style="color: var(--accent); text-decoration: none;">{{ .name }}</a>{{ end }}
+        </div>
+      </li>
+      {{- end }}
+    </ol>
+  </section>
+  {{- end }}
+</article>
+<style>
+  .publications-list .pub-year ol li:first-child { border-top: 0; padding-top: 0; }
+  @media (max-width: 640px) {
+    .publications-list .pub-list li { grid-template-columns: 1fr !important; }
+    .publications-list .pub-actions { flex-direction: row !important; flex-wrap: wrap; align-items: flex-start !important; }
+  }
+</style>
+{{- end }}
