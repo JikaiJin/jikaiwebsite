@@ -8,3 +8,9 @@ jsconfig.json
 node_modules/
 go.sum
 .hugo_build.lock
+
+# macOS Finder
+.DS_Store
+
+# OMC session artifacts (planning-session only, must not reach GitHub)
+.omc/
