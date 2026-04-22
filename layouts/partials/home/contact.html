@@ -15,9 +15,12 @@
     <a href="mailto:{{ $author.Params.email }}"
        style="color: var(--accent);">{{ $author.Params.email }}</a>.
   </p>
-  {{- if $contact -}}
-  <div class="contact-body">
-    {{ $contact.Content }}
+  {{- /* clustrmaps visitor-map widget — hardcoded here instead of rendering
+         contact.md body because Goldmark fights the <body>-wrapped script.
+         URL captured from production baseline; change if map ID rotates.
+         Required by A10 acceptance gate (third-party scripts preserved). */ -}}
+  <div class="clustrmaps-wrap" style="margin-top: var(--space-6);">
+    <script type="text/javascript" id="clustrmaps"
+            src="//cdn.clustrmaps.com/map_v2.js?cl=080808&w=600&t=tt&d=hTTCwL6j2b86VfyaWebPgMSN4J3Jg5gJFLiOUy8AcjE&co=ffffff&cmo=3acc3a&cmn=ff5353&ct=808080"></script>
   </div>
-  {{- end }}
 </section>

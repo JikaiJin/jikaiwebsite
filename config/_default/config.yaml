@@ -71,6 +71,12 @@ taxonomies:
   author: authors
 markup:
   _merge: deep
+  # Goldmark unsafe=true is required to preserve inline <script> tags in
+  # content/home/contact.md (clustrmaps visitor-map widget). Safe for this
+  # site — all markdown is authored by the site owner, no UGC.
+  goldmark:
+    renderer:
+      unsafe: true
 related:
   threshold: 80
   includeNewer: true
