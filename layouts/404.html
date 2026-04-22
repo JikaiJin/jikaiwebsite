@@ -1,0 +1,26 @@
+{{ define "main" -}}
+<article style="max-width: var(--measure); margin-inline: auto;
+     padding-inline: var(--space-5); padding-block: var(--space-12) var(--space-12);
+     text-align: center;">
+  <h1 style="font-family: 'Fraunces', 'GT Alpina', serif; font-style: italic;
+       font-weight: 400; font-size: 4rem; line-height: 1; letter-spacing: -0.02em;
+       margin: 0 0 var(--space-4); color: var(--ink);">404</h1>
+  <p style="font-family: var(--font-serif); font-size: var(--fs-lede);
+       line-height: var(--lh-snug); color: var(--ink); margin: 0 auto var(--space-5); max-width: 40ch;">
+    Page not found.
+  </p>
+  <p style="font-family: var(--font-serif); font-size: var(--fs-body);
+       line-height: var(--lh-body); color: var(--ink-muted); margin: 0 auto var(--space-6); max-width: 45ch;">
+    The page you were looking for doesn't exist — it may have moved, been renamed, or never existed in the first place.
+  </p>
+  <div style="display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap;
+       font-family: var(--font-ui); font-size: 0.95rem;">
+    <a href="{{ "/" | relURL }}" style="color: var(--accent); text-decoration: none;
+       border-bottom: 1px solid var(--accent); padding-bottom: 1px;">Home</a>
+    <a href="{{ "/publication/" | relURL }}" style="color: var(--accent); text-decoration: none;
+       border-bottom: 1px solid var(--accent); padding-bottom: 1px;">Publications</a>
+    <a href="{{ "/post/" | relURL }}" style="color: var(--accent); text-decoration: none;
+       border-bottom: 1px solid var(--accent); padding-bottom: 1px;">Posts</a>
+  </div>
+</article>
+{{- end }}
