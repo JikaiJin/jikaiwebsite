@@ -1,0 +1,23 @@
+{{- /*
+  Contact — pulls body of content/home/contact.md verbatim. The body
+  contains the clustrmaps <script> that MUST be preserved per A10.
+  Goldmark unsafe-HTML is allowed for this partial to render the script tag.
+*/ -}}
+{{- $contact := site.GetPage "home/contact" -}}
+{{- $author := site.GetPage "authors/admin" -}}
+<section class="home-section" id="contact"
+         style="padding-block: var(--space-8);">
+  <h2 style="font-family: var(--font-ui); font-size: var(--fs-caption);
+             font-weight: 500; text-transform: uppercase;
+             letter-spacing: 0.12em; color: var(--ink-muted);
+             margin: 0 0 var(--space-5);">Contact</h2>
+  <p>Best reached by email:
+    <a href="mailto:{{ $author.Params.email }}"
+       style="color: var(--accent);">{{ $author.Params.email }}</a>.
+  </p>
+  {{- if $contact -}}
+  <div class="contact-body">
+    {{ $contact.Content }}
+  </div>
+  {{- end }}
+</section>
