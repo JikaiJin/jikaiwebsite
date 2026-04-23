@@ -577,6 +577,37 @@ article.prose-article.no-section-numbers h2::before { content: none; }
 }
 
 /* ============================================================
+   Staged reveal animation (home page only — gated on html.js-ready).
+   Hero (id="about") renders instantly; bio paragraphs fade in
+   sequentially on a timer, then the post-hero sections fade in.
+   Without JS (no html.js-ready class), content stays visible
+   (default opacity:1) so SEO and no-JS users see everything.
+   Respects prefers-reduced-motion: reduce.
+   ============================================================ */
+html.js-ready .bio > p,
+html.js-ready .grid-page > *:not(#about) {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 600ms ease, transform 600ms ease;
+  will-change: opacity, transform;
+}
+html.js-ready .bio > p.revealed,
+html.js-ready .grid-page > *.revealed {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  html.js-ready .bio > p,
+  html.js-ready .bio > p.revealed,
+  html.js-ready .grid-page > *:not(#about),
+  html.js-ready .grid-page > *.revealed {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* ============================================================
    Print styles (Crit-11)
    ============================================================ */
 @media print {

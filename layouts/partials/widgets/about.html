@@ -12,8 +12,7 @@
           grid-template-areas:
             'name portrait'
             'subtitle portrait'
-            'bio portrait'
-            'links portrait';
+            'bio portrait';
           column-gap: var(--space-6);
           padding-block: var(--space-6) var(--space-8);
           border-bottom: 1px solid var(--rule);
@@ -49,27 +48,25 @@
        hyphens: none; -webkit-hyphens: none; text-align: left;
        font-feature-settings: 'onum', 'liga', 'kern';">
     {{ $author.Content }}
+    {{- /* Third paragraph — the social / CV link row. Rendered
+           template-side so the bio body stays prose-only. */ -}}
+    <p class="bio-links">
+      {{- $first := true -}}
+      {{- range $author.Params.social -}}
+        {{- $label := "" -}}
+        {{- if eq .icon "envelope" }}{{ $label = "Email" }}{{ end -}}
+        {{- if eq .icon "graduation-cap" }}{{ $label = "Google Scholar" }}{{ end -}}
+        {{- if eq .icon "github" }}{{ $label = "Github" }}{{ end -}}
+        {{- if eq .icon "weixin" }}{{ $label = "WeChat" }}{{ end -}}
+        {{- if $label -}}
+          {{- if not $first }} · {{ end -}}
+          <a href="{{ .link }}">{{ $label }}</a>
+          {{- $first = false -}}
+        {{- end -}}
+      {{- end -}}
+      {{- if not $first }} · {{ end -}}<a href="/uploads/resume.pdf">CV</a>
+    </p>
   </div>
-
-  <nav class="links" style="
-       grid-area: links;
-       margin-top: 1.5rem; display: flex; gap: 1.5rem; flex-wrap: wrap;
-       font-family: 'Source Serif 4', 'Noto Serif SC', Georgia, serif;
-       font-size: 0.95rem;">
-    {{- range $author.Params.social }}
-    {{- $label := .icon | title }}
-    {{- if eq .icon "envelope" }}{{ $label = "Email" }}{{ end }}
-    {{- if eq .icon "graduation-cap" }}{{ $label = "Google Scholar" }}{{ end }}
-    {{- if eq .icon "github" }}{{ $label = "GitHub" }}{{ end }}
-    {{- if eq .icon "weixin" }}{{ $label = "WeChat" }}{{ end }}
-    <a href="{{ .link }}"
-       style="color: var(--ink-muted); text-decoration: none;
-              border-bottom: 1px solid rgba(0,0,0,0.15); padding-bottom: 1px;">{{ $label }}</a>
-    {{- end }}
-    <a href="/uploads/resume.pdf"
-       style="color: var(--ink-muted); text-decoration: none;
-              border-bottom: 1px solid rgba(0,0,0,0.15); padding-bottom: 1px;">Resume</a>
-  </nav>
 
   <div class="portrait" style="
        grid-area: portrait; width: 100%; aspect-ratio: 1;
@@ -93,13 +90,23 @@
   @media (max-width: 720px) {
     .intro {
       grid-template-columns: 1fr !important;
-      grid-template-areas: "portrait" "name" "subtitle" "bio" "links" !important;
+      grid-template-areas: "portrait" "name" "subtitle" "bio" !important;
     }
     .intro > .portrait { width: 120px !important; justify-self: start; margin-bottom: var(--space-4); }
   }
-  .links a:hover { color: var(--accent) !important;
-                   border-bottom-color: var(--accent) !important; }
   .bio a { color: var(--accent); }
+  .bio .bio-links { margin-top: 1.5rem; }
+  .bio .bio-links a {
+    color: var(--ink-muted);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0,0,0,0.15);
+    padding-bottom: 1px;
+  }
+  .bio .bio-links a:hover,
+  .bio .bio-links a:focus-visible {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
 
   .name-cn--dark { display: none; }
   [data-theme="dark"] .name-cn--light { display: none; }

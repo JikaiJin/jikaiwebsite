@@ -67,5 +67,6 @@ email: 'jkjin@stanford.edu'
 highlight_name: true
 ---
 
-Welcome to my personal website! I am a third year Ph.D. student in [The Institute for Computational and Mathematical Engineering (ICME)](https://icme.stanford.edu/), [Stanford university](https://www.stanford.edu/), working with [Prof. Vasilis Syrgkanis](https://vsyrgkanis.com/). Prior to joining Stanford, I obtained my bachelor degree in computational mathematics in the [School of Mathematical Sciences](http://english.math.pku.edu.cn/), [Peking University](https://english.pku.edu.cn/), fortunately having [Prof. Liwei Wang](http://www.liweiwang-pku.com/) as my research advisor. I am broadly interested in any research questions that combine theoretical insights with real-world impact. My recent research interests include (1) [understanding fundamental limits of ML-empowered estimation methods](https://www.let-all.com/blog/2024/12/20/structure-agnostic-causal-estimation/) and (2) [applying statistical tools to enhance LLM evaluation](https://hanlin-zhang.com/causal-capabilities/). If you share similar interests, feel free to contact me via email or Wechat.
-{{< icon name="download" pack="fas" >}} Download my {{< staticref "uploads/resume.pdf" "newtab" >}}resumé{{< /staticref >}}.
+Third-year PhD at Stanford ICME, advised by Vasilis Syrgkanis. Previously at Peking University with Liwei Wang.
+
+I work on the statistical foundations of modern ML — specifically, the fundamental limits of ML-empowered estimation, and how to bring statistical rigor to LLM evaluation.
