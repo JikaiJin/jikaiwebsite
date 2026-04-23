@@ -75,13 +75,15 @@
        grid-area: portrait; width: 100%; aspect-ratio: 1;
        border-radius: 50%; overflow: hidden;
        background: var(--bg-subtle); border: 1px solid var(--rule);">
-    {{- $avatar := resources.Get "/media/admin/avatar.jpg" }}
-    {{- if not $avatar }}{{ $avatar = resources.GetMatch "**/avatar.jpg" }}{{ end }}
+    {{- /* avatar.jpg is a bundle resource of content/authors/admin/,
+           so it's accessed via the author page's .Resources, not the
+           global resources.* functions. */ -}}
+    {{- $avatar := $author.Resources.GetMatch "avatar.*" -}}
     {{- if $avatar }}
     <img src="{{ $avatar.RelPermalink }}" alt="{{ $author.Params.title }}"
          style="width: 100%; height: 100%; object-fit: cover;">
     {{- else }}
-    <img src="/avatar.jpg" alt="{{ $author.Params.title }}"
+    <img src="/authors/admin/avatar.jpg" alt="{{ $author.Params.title }}"
          style="width: 100%; height: 100%; object-fit: cover;">
     {{- end }}
   </div>
