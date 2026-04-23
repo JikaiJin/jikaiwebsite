@@ -311,11 +311,13 @@ li { margin-block: var(--space-2); }
 ::selection { background: var(--selection); color: var(--ink); }
 
 /* ============================================================
-   Signature detail — auto § section numbering on h2
+   Signature detail — auto § section numbering on h2.
+   Scoped to .prose-article so list pages (publication list, etc.)
+   that wrap in plain <article> do not get counters on their year h2s.
    ============================================================ */
-article { counter-reset: section; }
-article h2 { counter-increment: section; position: relative; }
-article h2::before {
+article.prose-article { counter-reset: section; }
+article.prose-article h2 { counter-increment: section; position: relative; }
+article.prose-article h2::before {
   content: '§ ' counter(section);
   display: block;
   font-family: var(--font-sans);
@@ -326,7 +328,7 @@ article h2::before {
   color: var(--ink-muted);
   margin-bottom: var(--space-2);
 }
-article.no-section-numbers h2::before { content: none; }
+article.prose-article.no-section-numbers h2::before { content: none; }
 
 /* ============================================================
    §3.5 Markup contract adopters wrap this way:
@@ -551,7 +553,7 @@ article.no-section-numbers h2::before { content: none; }
     font-size: 0.85em;
     color: #555;
   }
-  article h2::before { color: #555; }
+  article.prose-article h2::before { color: #555; }
   pre, code { border: 1px solid #CCC; background: #F5F5F5; }
   figure, pre { break-inside: avoid; }
 }
