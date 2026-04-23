@@ -6,6 +6,11 @@ widget: pages
 # This file represents a page section.
 headless: false
 
+# Deactivated — the home page shows Featured Publications only; the full
+# Recent Publications list lives at /publication/. Re-enable by setting
+# active: true if you want the in-page list back.
+active: false
+
 # Order that this section appears on the page.
 weight: 30
 
