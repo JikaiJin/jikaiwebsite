@@ -35,17 +35,18 @@ def fetch(url, timeout=15):
 
 def extract_labels(html, is_prod):
     """Return the lowercase set of action-link labels found on the page.
-    Prod uses .btn-page-header anchors (Wowchemy); preview uses .pub-link."""
+    Prod uses .btn-page-header anchors (Wowchemy); preview uses .pub-link.
+    Accept both quoted and unquoted class attribute values (Hugo minifier)."""
     if is_prod:
         # Wowchemy: <a class="btn btn-outline-primary btn-page-header" ...>PDF</a>
-        # Also grab js-cite-modal class (Cite button).
         labels = re.findall(
-            r'<a[^>]+class="[^"]*btn-page-header[^"]*"[^>]*>(?:<[^>]+>)*([^<]+?)(?:<[^>]*)?</a>',
+            r'<a[^>]+\bclass=(?:"[^"]*btn-page-header[^"]*"|\'[^\']*btn-page-header[^\']*\'|[^\s>]*btn-page-header[^\s>]*)[^>]*>(?:<[^>]+>)*([^<]+?)(?:<[^>]*)?</a>',
             html)
     else:
-        # Preview: <a class="pub-link" ...>PDF</a>
-        labels = re.findall(r'<a[^>]+class="pub-link"[^>]*>([^<]+)</a>', html)
-    # Normalise
+        # Preview: <a class=pub-link ...>PDF</a>
+        labels = re.findall(
+            r'<a[^>]+\bclass=(?:"pub-link"|\'pub-link\'|pub-link)[^>]*>([^<]+)</a>',
+            html)
     return {x.strip().lower() for x in labels if x.strip()}
 
 def main():
