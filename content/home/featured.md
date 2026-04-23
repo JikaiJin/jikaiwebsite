@@ -4,7 +4,7 @@
 widget: featured
 
 # This file represents a page section.
-headless: true
+headless: false
 
 # Order that this section appears on the page.
 # 31 (not 30) to break the weight tie with publications.md — otherwise

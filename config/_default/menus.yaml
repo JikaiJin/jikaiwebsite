@@ -8,7 +8,10 @@ main:
     url: '#about'
     weight: 10
   - name: Publications
-    url: '#featured'
+    # Points to the full Recent Publications list (#publications), not the
+    # featured-only subset at #featured — the nav label says "Publications"
+    # so the anchor should land at the full list.
+    url: '#publications'
     weight: 50
   - name: Contact
     url: '#contact'
