@@ -331,6 +331,31 @@ article.prose-article h2::before {
 article.prose-article.no-section-numbers h2::before { content: none; }
 
 /* ============================================================
+   Publication action links — shared pill style used by
+   layouts/partials/pub-links.html (list + single).
+   ============================================================ */
+.pub-link {
+  color: var(--accent);
+  text-decoration: none;
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 1px;
+  white-space: nowrap;
+  transition: border-color 120ms ease;
+}
+.pub-link:hover,
+.pub-link:focus-visible { border-bottom-color: var(--accent); }
+.pub-link + .pub-link { margin-inline-start: 0; }
+.pub-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  align-items: flex-end;
+}
+
+/* ============================================================
    §3.5 Markup contract adopters wrap this way:
      <div class="post-layout">
        <article>...content...</article>

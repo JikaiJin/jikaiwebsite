@@ -60,15 +60,9 @@
                color: var(--ink-muted);">{{ . | markdownify }}</div>
           {{- end }}
         </div>
-        <div class="pub-actions" style="display: flex; flex-direction: column;
-             gap: var(--space-1); font-family: var(--font-ui); font-size: 0.82rem;
-             align-items: flex-end; white-space: nowrap;">
-          {{- with .Params.url_pdf }}<a href="{{ . }}" style="color: var(--accent); text-decoration: none;">PDF</a>{{ end }}
-          {{- if fileExists (printf "%s/cite.bib" $page.File.Dir) }}
-          <a href="{{ .RelPermalink }}cite.bib" style="color: var(--accent); text-decoration: none;">cite</a>
-          {{- end }}
-          {{- with .Params.url_code }}<a href="{{ . }}" style="color: var(--accent); text-decoration: none;">code</a>{{ end }}
-          {{- with (index .Params.links 0) }}<a href="{{ .url }}" style="color: var(--accent); text-decoration: none;">{{ .name }}</a>{{ end }}
+        <div class="pub-actions pub-actions--stacked"
+             style="flex-direction: column; align-items: flex-end; gap: var(--space-1);">
+          {{ partial "pub-links.html" . }}
         </div>
       </li>
       {{- end }}

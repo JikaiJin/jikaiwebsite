@@ -29,21 +29,8 @@
          margin-bottom: var(--space-5);">{{ . | markdownify }} · {{ $page.Date.Format "2006" }}</div>
     {{- end }}
 
-    <div class="pub-actions" style="display: flex; flex-wrap: wrap; gap: var(--space-4);
-         margin-top: var(--space-4); font-family: var(--font-ui); font-size: 0.9rem;">
-      {{- with .Params.url_pdf }}<a href="{{ . }}" style="color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent);">PDF</a>{{ end }}
-      {{- if fileExists (printf "%s/cite.bib" .File.Dir) }}
-      <a href="{{ .RelPermalink }}cite.bib" style="color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent);">cite</a>
-      {{- end }}
-      {{- with .Params.url_code }}<a href="{{ . }}" style="color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent);">code</a>{{ end }}
-      {{- with .Params.url_dataset }}<a href="{{ . }}" style="color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent);">dataset</a>{{ end }}
-      {{- with .Params.url_slides }}<a href="{{ . }}" style="color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent);">slides</a>{{ end }}
-      {{- with .Params.url_poster }}<a href="{{ . }}" style="color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent);">poster</a>{{ end }}
-      {{- with .Params.url_video }}<a href="{{ . }}" style="color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent);">video</a>{{ end }}
-      {{- with .Params.doi }}<a href="https://doi.org/{{ . }}" style="color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent);">DOI</a>{{ end }}
-      {{- range .Params.links }}
-      <a href="{{ .url }}" style="color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent);">{{ .name }}</a>
-      {{- end }}
+    <div class="pub-actions" style="margin-top: var(--space-4); font-size: 0.9rem;">
+      {{ partial "pub-links.html" . }}
     </div>
   </header>
 
