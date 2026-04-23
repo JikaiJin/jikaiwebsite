@@ -591,8 +591,12 @@ html.js-ready .grid-page > *:not(#about) {
   transition: opacity 600ms ease, transform 600ms ease;
   will-change: opacity, transform;
 }
+/* Revealed override — must match or exceed the specificity of the hidden
+   rule above. The :not(#about) selector pulls in an ID (1,2,0), so the
+   revealed override for the rest-of-page must include :not(#about) too
+   or .revealed alone would lose the cascade. */
 html.js-ready .bio > p.revealed,
-html.js-ready .grid-page > *.revealed {
+html.js-ready .grid-page > *:not(#about).revealed {
   opacity: 1;
   transform: none;
 }
@@ -600,7 +604,7 @@ html.js-ready .grid-page > *.revealed {
   html.js-ready .bio > p,
   html.js-ready .bio > p.revealed,
   html.js-ready .grid-page > *:not(#about),
-  html.js-ready .grid-page > *.revealed {
+  html.js-ready .grid-page > *:not(#about).revealed {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
