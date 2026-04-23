@@ -506,7 +506,27 @@ article.prose-article.no-section-numbers h2::before { content: none; }
 .site-header nav {
   display: flex;
   gap: var(--space-5);
-  flex-wrap: wrap;
+  /* Always single row — per user instruction "do not worry about
+     exceeding the width of the main text". Items keep their intrinsic
+     width (no shrink) and the nav spills past the measure if needed. */
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  overflow-x: visible;
+}
+.site-header nav a { flex-shrink: 0; }
+/* On narrow viewports the whole header strip (brand + nav + theme
+   toggle) becomes horizontally scrollable so nothing is clipped —
+   the nav itself stays nowrap and items remain visible by scroll. */
+@media (max-width: 560px) {
+  .site-header {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    flex-wrap: nowrap;
+    scrollbar-width: none;
+  }
+  .site-header::-webkit-scrollbar { display: none; }
+  .site-header .brand,
+  .site-header .theme-toggle { flex-shrink: 0; }
 }
 .site-header nav a {
   color: var(--ink-muted);
