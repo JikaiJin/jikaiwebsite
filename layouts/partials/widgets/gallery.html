@@ -1,0 +1,84 @@
+{{- /*
+  gallery widget — home-page section. Shows the N most recent album
+  covers as tiles (or degrades to a list when fewer than 3 albums).
+  Input (from layouts/index.html:28): dict {page, id} where .page is
+  the content/home/gallery.md frontmatter page and .id is the file
+  basename (→ section id for the nav anchor).
+*/ -}}
+{{- $id := .id -}}
+{{- $page := .page -}}
+{{- $count := $page.Params.content.count | default 3 -}}
+{{- $order := $page.Params.content.order | default "desc" -}}
+{{- $albums := where site.RegularPages "Section" "gallery" -}}
+{{- $albums = sort $albums "Date" $order -}}
+{{- if gt $count 0 }}{{ $albums = first $count $albums }}{{ end -}}
+
+<section class="home-section home-section--gallery" id="{{ $id }}"
+         style="padding-block: var(--space-8); border-bottom: 1px solid var(--rule);">
+  {{- with $page.Title }}
+  <h2 style="font-family: var(--font-ui); font-size: var(--fs-caption);
+             font-weight: 500; text-transform: uppercase;
+             letter-spacing: 0.12em; color: var(--ink-muted);
+             margin: 0 0 var(--space-5);">{{ . }}</h2>
+  {{- end }}
+
+  {{- if ge (len $albums) 3 }}
+  <div class="gallery-grid"
+       style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5);">
+    {{- range $albums }}
+    <figure style="margin: 0;">
+      <a href="{{ .RelPermalink }}"
+         style="text-decoration: none; color: inherit;">
+        <div class="tile"
+             style="aspect-ratio: 4 / 3; overflow: hidden;
+                    border: 1px solid var(--rule);
+                    border-radius: var(--radius-md);
+                    background: var(--bg-subtle);
+                    transition: border-color 120ms ease;">
+          {{ partial "gallery-cover.html" (dict "page" . "eager" false) }}
+        </div>
+        <figcaption style="font-family: var(--font-serif);
+             font-size: var(--fs-small); line-height: var(--lh-snug);
+             color: var(--ink); margin-top: var(--space-2);">{{ .Title }}</figcaption>
+        <div class="meta"
+             style="font-family: var(--font-ui); font-size: var(--fs-caption);
+                    color: var(--ink-muted); letter-spacing: 0.04em;
+                    margin-top: var(--space-1);">{{ .Date.Format "Jan 2006" }}</div>
+      </a>
+    </figure>
+    {{- end }}
+  </div>
+  {{- else if (len $albums) }}
+  {{- /* <3 albums: render as list so the grid doesn't look empty. */ -}}
+  <ul style="list-style: none; padding: 0; margin: 0;">
+    {{- range $albums }}
+    <li style="padding-block: var(--space-4); border-top: 1px solid var(--rule);">
+      <a href="{{ .RelPermalink }}"
+         style="font-family: 'Fraunces', 'GT Alpina', serif; font-weight: 500;
+                font-size: 1.1rem; color: var(--ink); text-decoration: none;">{{ .Title }}</a>
+      {{- with .Params.summary }}
+      <p style="font-family: var(--font-serif); font-size: var(--fs-small);
+                color: var(--ink-muted); margin: var(--space-1) 0 0;">{{ . }}</p>
+      {{- end }}
+      <div class="meta"
+           style="font-family: var(--font-ui); font-size: var(--fs-caption);
+                  color: var(--ink-muted); margin-top: var(--space-1);">{{ .Date.Format "Jan 2006" }}</div>
+    </li>
+    {{- end }}
+  </ul>
+  {{- end }}
+
+  {{- /* Zero albums: emit nothing visible except the "See all" link,
+         which also links to the empty /gallery/ page — the link goes
+         to the authoring instructions there. */ -}}
+  <a href="{{ "/gallery/" | relURL }}"
+     style="display: inline-block; margin-top: var(--space-4);
+            font-family: var(--font-ui); font-size: var(--fs-small);
+            color: var(--ink-muted); text-decoration: none;
+            border-bottom: 1px solid var(--rule); padding-bottom: 2px;">See all albums →</a>
+</section>
+<style>
+  @media (max-width: 900px) { #{{ $id }} .gallery-grid { grid-template-columns: repeat(2, 1fr) !important; } }
+  @media (max-width: 560px) { #{{ $id }} .gallery-grid { grid-template-columns: 1fr !important; } }
+  #{{ $id }} .tile:hover { border-color: var(--accent); }
+</style>
