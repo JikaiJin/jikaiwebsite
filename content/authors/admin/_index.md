@@ -69,4 +69,4 @@ highlight_name: true
 
 Third-year PhD at Stanford ICME, advised by Vasilis Syrgkanis. Previously at Peking University with Liwei Wang.
 
-I work on the statistical foundations of modern ML — specifically, the fundamental limits of ML-empowered estimation, and how to bring statistical rigor to LLM evaluation.
+I work on making the frontier of intelligence more principled, more robust, and better adapted to real-world applications.
