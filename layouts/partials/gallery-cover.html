@@ -1,0 +1,62 @@
+{{- /*
+  Resolve + render an album's front-cover image as an <img>.
+  Required input: dict with keys
+    page  — the album's Page object
+    eager — bool; true → loading="eager" fetchpriority="high" (LCP)
+
+  Cover resolution (in priority order):
+    1. .page.Params.cover (explicit filename, literal — not a glob)
+    2. a resource named cover.* in the bundle
+    3. first image sorted by .page.Params.image_order ("name" default,
+       "date", or "weight")
+    4. placeholder tile (album title in a neutral box)
+
+  Fires warnf on every fallback branch to surface misconfig in the
+  build log.
+*/ -}}
+{{- $page := .page -}}
+{{- $eager := .eager | default false -}}
+{{- $cover := "" -}}
+{{- $source := "" -}}
+{{- with $page.Params.cover -}}
+  {{- $cover = $page.Resources.GetMatch . -}}
+  {{- if $cover -}}{{ $source = "explicit" }}{{- end -}}
+{{- end -}}
+{{- if not $cover -}}
+  {{- $cover = $page.Resources.GetMatch "cover.*" -}}
+  {{- if $cover -}}{{ $source = "cover-named" }}{{- end -}}
+{{- end -}}
+{{- if not $cover -}}
+  {{- $imgs := $page.Resources.ByType "image" -}}
+  {{- $order := $page.Params.image_order | default "name" -}}
+  {{- if eq $order "date" }}{{ $imgs = sort $imgs "Date" "asc" }}{{ end -}}
+  {{- if eq $order "weight" }}{{ $imgs = sort $imgs "Params.weight" "asc" }}{{ end -}}
+  {{- if $imgs -}}
+    {{- $cover = index $imgs 0 -}}
+    {{- $source = "first-image-fallback" -}}
+  {{- end -}}
+{{- end -}}
+{{- if $cover -}}
+  {{- if ne $source "explicit" -}}
+    {{- warnf "gallery-cover: %s resolved via %q (no explicit cover: frontmatter, or it did not resolve)" $page.RelPermalink $source -}}
+  {{- end -}}
+  {{- $small := $cover.Resize "400x webp q82" -}}
+  {{- $med := $cover.Resize "800x webp q82" -}}
+  {{- $large := $cover.Resize "1200x webp q82" -}}
+  <img src="{{ $med.RelPermalink }}"
+       srcset="{{ $small.RelPermalink }} 400w, {{ $med.RelPermalink }} 800w, {{ $large.RelPermalink }} 1200w"
+       sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw"
+       alt="{{ $page.Title }}"
+       loading="{{ if $eager }}eager{{ else }}lazy{{ end }}"
+       {{ if $eager }}fetchpriority="high"{{ end }}
+       decoding="async"
+       style="width: 100%; height: 100%; object-fit: cover; display: block;">
+{{- else -}}
+  {{- warnf "gallery-cover: %s has no cover and no images — rendering placeholder tile" $page.RelPermalink -}}
+  <div style="display: grid; place-items: center; width: 100%; height: 100%;
+       color: var(--ink-muted); font-family: var(--font-ui);
+       font-size: var(--fs-caption); letter-spacing: 0.06em;
+       text-transform: uppercase; padding: var(--space-3); text-align: center;">
+    {{ $page.Title | truncate 40 }}
+  </div>
+{{- end -}}

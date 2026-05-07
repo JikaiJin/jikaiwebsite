@@ -1,0 +1,10 @@
+{{- /*
+  callout shortcode — paired, markdown-style {{% callout type %}}.
+  Wowchemy supported note|warning|danger|alert|success. We render a
+  simple styled aside with the type as a modifier class.
+  Usage: {{% callout note %}} ... {{% /callout %}}
+*/ -}}
+{{- $type := .Get 0 | default "note" -}}
+<aside class="callout callout-{{ $type }}">
+  {{ .Inner | markdownify }}
+</aside>

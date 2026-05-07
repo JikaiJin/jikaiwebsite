@@ -1,0 +1,29 @@
+<header class="site-header">
+  <a class="brand" href="{{ "/" | relURL }}">{{ .Site.Title | default "Home" }}</a>
+  <nav>
+    {{- range site.Menus.main }}
+    <a href="{{ .URL | relURL }}"{{ if $.IsMenuCurrent "main" . }} aria-current="page"{{ end }}>{{ .Name }}</a>
+    {{- end }}
+  </nav>
+  {{- /* 3-state theme toggle: light → dark → auto → light. "auto" clears
+         localStorage and re-applies the clock-based pick immediately so the
+         page flips without reload. */ -}}
+  <button class="theme-toggle"
+    onclick="
+      var r=document.documentElement;
+      var stored=null;try{stored=localStorage.getItem('theme');}catch(e){}
+      var next;
+      if(stored==='light')next='dark';
+      else if(stored==='dark')next='auto';
+      else next='light';
+      if(next==='auto'){
+        try{localStorage.removeItem('theme');}catch(e){}
+        var h=new Date().getHours();
+        r.setAttribute('data-theme',(h>=6&&h<18)?'light':'dark');
+        r.setAttribute('data-theme-source','clock');
+      }else{
+        r.setAttribute('data-theme',next);
+        r.removeAttribute('data-theme-source');
+        try{localStorage.setItem('theme',next);}catch(e){}
+      }">theme</button>
+</header>

@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="{{ or site.Language.Lang "en" }}">
+<head>
+  {{- partial "head.html" . -}}
+  {{- partial "head-extra.html" . -}}
+  {{- /* Per-template <head> extension point. Distinct from
+         partials/head-extra.html — that's a PARTIAL, this is a
+         BLOCK that templates (e.g. layouts/gallery/single.html)
+         fill with og:image / twitter:card metadata. Non-defining
+         templates get the empty default and emit nothing. */ -}}
+  {{- block "page-head-meta" . }}{{ end -}}
+</head>
+<body>
+  {{- partial "header.html" . -}}
+  <main>
+    {{- block "main" . }}{{ .Content }}{{ end -}}
+  </main>
+  {{- partial "footer.html" . -}}
+</body>
+</html>

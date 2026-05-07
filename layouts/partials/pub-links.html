@@ -1,0 +1,43 @@
+{{- /*
+  pub-links — shared action-link pill set for a publication page. Used by
+  layouts/publication/list.html (list row) and layouts/publication/single.html
+  (single-page header). Call with the publication page as context:
+
+      {{ partial "pub-links.html" . }}
+
+  Renders (each only if present / resolved):
+    - PDF   (resolved in order: .Params.url_pdf, then a bundle file matching
+             "<dirBase>.pdf" exact, then any "*.pdf" in the bundle)
+    - cite  (if sibling cite.bib exists)
+    - code / dataset / slides / poster / video  (from Params.url_*)
+    - DOI   (rendered as https://doi.org/<value>)
+    - every entry in Params.links[]  (name + url)
+*/ -}}
+{{- $page := . -}}
+{{- $dirBase := path.Base $page.File.Dir -}}
+
+{{- /* Resolve a PDF: explicit url_pdf > "<dirBase>.pdf" > first "*.pdf" */ -}}
+{{- $pdfHref := "" -}}
+{{- with $page.Params.url_pdf -}}
+  {{- if ne . "" }}{{ $pdfHref = . }}{{ end -}}
+{{- end -}}
+{{- if eq $pdfHref "" -}}
+  {{- with $page.Resources.GetMatch (printf "%s.pdf" $dirBase) -}}
+    {{- $pdfHref = .RelPermalink -}}
+  {{- end -}}
+{{- end -}}
+{{- if eq $pdfHref "" -}}
+  {{- with $page.Resources.GetMatch "*.pdf" -}}
+    {{- $pdfHref = .RelPermalink -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if $pdfHref }}<a class="pub-link" href="{{ $pdfHref }}">PDF</a>{{ end }}
+{{- if fileExists (printf "%s/cite.bib" $page.File.Dir) }}<a class="pub-link" href="{{ $page.RelPermalink }}cite.bib">cite</a>{{ end }}
+{{- with $page.Params.url_code }}{{ if ne . "" }}<a class="pub-link" href="{{ . }}">code</a>{{ end }}{{ end }}
+{{- with $page.Params.url_dataset }}{{ if ne . "" }}<a class="pub-link" href="{{ . }}">dataset</a>{{ end }}{{ end }}
+{{- with $page.Params.url_slides }}{{ if ne . "" }}<a class="pub-link" href="{{ . }}">slides</a>{{ end }}{{ end }}
+{{- with $page.Params.url_poster }}{{ if ne . "" }}<a class="pub-link" href="{{ . }}">poster</a>{{ end }}{{ end }}
+{{- with $page.Params.url_video }}{{ if ne . "" }}<a class="pub-link" href="{{ . }}">video</a>{{ end }}{{ end }}
+{{- with $page.Params.doi }}{{ if ne . "" }}<a class="pub-link" href="https://doi.org/{{ . }}">DOI</a>{{ end }}{{ end }}
+{{- range $page.Params.links }}<a class="pub-link" href="{{ .url }}">{{ .name }}</a>{{ end -}}

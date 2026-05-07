@@ -1,0 +1,34 @@
+{{ define "main" -}}
+{{- /*
+  Data-driven home page. Iterates the /home section's pages (which is
+  what `content/home/*.md` becomes once `content/home/_index.md` marks
+  the folder as a section branch bundle). Filters to pages with a
+  widget: frontmatter key and active != false. Sorts by weight with a
+  stable alphabetical tiebreak, then dispatches to
+  `layouts/partials/widgets/<widget>.html` with the page as context.
+
+  Section `id` = basename of the content file (e.g. recent_news.md →
+  id="recent_news") so menus.yaml anchors resolve by construction.
+
+  A missing widget partial is an errorf, not a silent skip.
+*/ -}}
+{{- $widgets := slice -}}
+{{- with site.GetPage "/home" -}}
+  {{- range .Pages -}}
+    {{- if and (.Params.widget) (ne .Params.active false) -}}
+      {{- $widgets = $widgets | append . -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+<div class="grid-page">
+{{- range (sort (sort $widgets "File.BaseFileName" "asc") "Weight" "asc") }}
+  {{- $w := .Params.widget -}}
+  {{- $id := .File.BaseFileName -}}
+  {{- if fileExists (printf "layouts/partials/widgets/%s.html" $w) -}}
+    {{ partial (printf "widgets/%s.html" $w) (dict "page" . "id" $id) }}
+  {{- else -}}
+    {{ errorf "Unknown widget type %q in %s — add layouts/partials/widgets/%s.html or change the widget: frontmatter key." $w .File.Path $w }}
+  {{- end -}}
+{{- end }}
+</div>
+{{- end }}

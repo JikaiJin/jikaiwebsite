@@ -4,10 +4,12 @@
 widget: featured
 
 # This file represents a page section.
-headless: true
+headless: false
 
 # Order that this section appears on the page.
-weight: 30
+# 31 (not 30) to break the weight tie with publications.md — otherwise
+# Hugo's sort order between featured.md and publications.md is undefined.
+weight: 31
 
 title: Featured Publications
 subtitle: ''

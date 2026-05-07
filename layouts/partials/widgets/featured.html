@@ -1,0 +1,58 @@
+{{- /*
+  featured widget — lists publication pages with .Params.featured == true.
+  Reverse-chronological. Honors .page.Params.content.count (0 = all).
+*/ -}}
+{{- $id := .id -}}
+{{- $page := .page -}}
+{{- $count := $page.Params.content.count | default 4 -}}
+{{- $featured := where (where site.RegularPages "Section" "publication") "Params.featured" true -}}
+{{- $featured = sort $featured "Date" "desc" -}}
+{{- if gt $count 0 }}{{ $featured = first $count $featured }}{{ end -}}
+<section class="home-section" id="{{ $id }}"
+         style="padding-block: var(--space-8); border-bottom: 1px solid var(--rule);">
+  {{- with $page.Title }}
+  <h2 style="font-family: var(--font-ui); font-size: var(--fs-caption);
+             font-weight: 500; text-transform: uppercase;
+             letter-spacing: 0.12em; color: var(--ink-muted);
+             margin: 0 0 var(--space-5);">{{ . }}</h2>
+  {{- end }}
+  <ul class="pub-list" style="list-style: none; padding: 0; margin: 0;">
+    {{- range $featured }}
+    {{- $pub := . }}
+    <li style="padding-block: var(--space-4); border-top: 1px solid var(--rule);">
+      <h3 class="publication-title" style="
+           font-family: 'Fraunces', 'GT Alpina', serif;
+           font-weight: 500; font-size: 1.25rem;
+           letter-spacing: -0.015em; line-height: 1.3; margin: 0 0 var(--space-1);">
+        <a href="{{ $pub.RelPermalink }}" style="color: var(--ink); text-decoration: none;">{{ $pub.Title }}</a>
+      </h3>
+      {{- with $pub.Params.authors }}
+      <div class="pub-authors" style="font-family: var(--font-serif); font-size: var(--fs-small); color: var(--ink); margin: var(--space-1) 0;">
+        {{- range $i, $a := . -}}
+          {{- if $i }}, {{ end -}}
+          {{- if or (eq $a "admin") (eq $a "Jikai Jin") -}}
+            <span class="self" style="font-weight: 600;">Jikai Jin</span>
+          {{- else -}}
+            {{ $a }}
+          {{- end -}}
+        {{- end -}}
+      </div>
+      {{- end }}
+      {{- with $pub.Params.publication }}
+      <div class="venue" style="
+           font-variant: small-caps; letter-spacing: 0.05em;
+           font-size: 0.85rem; font-family: var(--font-nav);
+           color: var(--ink-muted);">{{ . | markdownify }} · {{ $pub.Date.Format "2006" }}</div>
+      {{- end }}
+      <div class="pub-actions" style="margin-top: var(--space-2); font-size: var(--fs-caption);">
+        {{ partial "pub-links.html" $pub }}
+      </div>
+    </li>
+    {{- end }}
+  </ul>
+  <a href="{{ "/publication/" | relURL }}"
+     style="display: inline-block; margin-top: var(--space-4);
+            font-family: var(--font-ui); font-size: var(--fs-small);
+            color: var(--ink-muted); text-decoration: none;
+            border-bottom: 1px solid var(--rule); padding-bottom: 2px;">See full list →</a>
+</section>
