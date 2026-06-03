@@ -6,11 +6,11 @@ authors:
   - Jikai Jin
   - Vasilis Syrgkanis
 
-date: '2026-01-05T00:00:00Z'
+date: '2025-12-05T00:00:00Z'
 doi: '10.48550/arXiv.2512.17341'
 
 # Schedule page publish date (NOT publication's date).
-publishDate: '2026-01-05T00:00:00Z'
+publishDate: '2025-12-05T00:00:00Z'
 
 # Publication type.
 publication_types: ['3']
