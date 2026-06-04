@@ -1,0 +1,114 @@
+{{ define "main" -}}
+{{- $page := . -}}
+<article class="gallery-single prose-article no-section-numbers"
+         style="max-width: 920px; margin-inline: auto;
+                padding-inline: var(--space-5);
+                padding-block: var(--space-6) var(--space-8);">
+  <header style="margin-bottom: var(--space-6); padding-bottom: var(--space-5);
+                 border-bottom: 1px solid var(--rule);">
+    <nav style="font-family: var(--font-ui); font-size: var(--fs-caption);
+                color: var(--ink-muted); margin-bottom: var(--space-3);">
+      <a href="{{ "/gallery/" | relURL }}"
+         style="color: inherit; border-bottom: 1px solid var(--rule);">← Gallery</a>
+    </nav>
+    <h1 style="font-family: 'Fraunces', 'GT Alpina', serif; font-weight: 500;
+         font-size: 2.25rem; line-height: 1.15; letter-spacing: -0.015em;
+         margin: 0 0 var(--space-2);">{{ .Title }}</h1>
+    <div class="meta"
+         style="font-family: var(--font-ui); font-size: var(--fs-caption);
+                color: var(--ink-muted); letter-spacing: 0.02em;">
+      <time datetime="{{ .Date.Format "2006-01-02" }}"
+            style="font-variant-numeric: lining-nums;">{{ .Date.Format "January 2, 2006" }}</time>
+    </div>
+  </header>
+
+  {{- if .Content }}
+  <section class="prose"
+           style="margin-block: var(--space-6);
+                  font-size: var(--fs-body); line-height: var(--lh-body);">
+    {{ .Content }}
+  </section>
+  {{- end }}
+
+  {{- /* Build the image grid. Exclusion rules:
+         - always skip cover.* (it's the cover, not content)
+         - skip the explicit cover iff gallery_exclude_cover: true */ -}}
+  {{- $images := $page.Resources.ByType "image" -}}
+  {{- $order := $page.Params.image_order | default "name" -}}
+  {{- if eq $order "date" }}{{ $images = sort $images "Date" "asc" }}{{ end -}}
+  {{- if eq $order "weight" }}{{ $images = sort $images "Params.weight" "asc" }}{{ end -}}
+
+  {{- $excludeNames := slice -}}
+  {{- $cov := $page.Resources.GetMatch "cover.*" -}}
+  {{- if $cov -}}{{ $excludeNames = $excludeNames | append $cov.Name }}{{- end -}}
+  {{- with $page.Params.cover -}}
+    {{- if $page.Params.gallery_exclude_cover -}}
+      {{- $excludeNames = $excludeNames | append . -}}
+    {{- end -}}
+  {{- end -}}
+  {{- $filtered := slice -}}
+  {{- range $images -}}
+    {{- $keep := true -}}
+    {{- $me := . -}}
+    {{- range $excludeNames -}}{{- if eq . $me.Name -}}{{ $keep = false }}{{- end -}}{{- end -}}
+    {{- if $keep -}}{{ $filtered = $filtered | append $me }}{{- end -}}
+  {{- end -}}
+
+  {{- $count := len $filtered -}}
+  {{- if gt $count 40 -}}
+    {{- warnf "gallery: %s has %d images (> 40 recommended) — consider splitting into multiple albums" $page.RelPermalink $count -}}
+  {{- end -}}
+
+  {{- if $filtered }}
+  <section class="album-grid"
+           style="display: grid; grid-template-columns: repeat(3, 1fr);
+                  gap: var(--space-4); margin-top: var(--space-6);">
+    {{- range $filtered }}
+    {{- $small := .Resize "400x webp q82" -}}
+    {{- $med := .Resize "800x webp q82" -}}
+    {{- $large := .Resize "1200x webp q82" -}}
+    {{- $alt := .Params.alt | default "" -}}
+    <a href="{{ .RelPermalink }}" target="_blank" rel="noopener"
+       style="display: block; aspect-ratio: 4 / 3; overflow: hidden;
+              border-radius: var(--radius-md);
+              border: 1px solid var(--rule);
+              background: var(--bg-subtle);
+              transition: border-color 120ms ease;">
+      <img src="{{ $med.RelPermalink }}"
+           srcset="{{ $small.RelPermalink }} 400w, {{ $med.RelPermalink }} 800w, {{ $large.RelPermalink }} 1200w"
+           sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw"
+           alt="{{ $alt }}"
+           loading="lazy" decoding="async"
+           style="width: 100%; height: 100%; object-fit: cover; display: block;">
+    </a>
+    {{- end }}
+  </section>
+  {{- end }}
+</article>
+<style>
+  @media (max-width: 900px) { .album-grid { grid-template-columns: repeat(2, 1fr) !important; } }
+  @media (max-width: 560px) { .album-grid { grid-template-columns: 1fr !important; } }
+  .album-grid a:hover { border-color: var(--accent) !important; }
+</style>
+{{- end }}
+
+{{- /* OG / Twitter metadata. Merges with baseof.html's <head> via the
+       "page-head-meta" block (deliberately named distinct from the
+       existing layouts/partials/head-extra.html partial). Inlines the
+       cover-URL resolver because the <head> needs a URL only. */ -}}
+{{ define "page-head-meta" -}}
+{{- $page := . -}}
+{{- $coverURL := "" -}}
+{{- with $page.Params.cover -}}{{- with $page.Resources.GetMatch . }}{{ $coverURL = (.Resize "1200x webp q82").Permalink }}{{- end -}}{{- end -}}
+{{- if not $coverURL -}}{{- with $page.Resources.GetMatch "cover.*" }}{{ $coverURL = (.Resize "1200x webp q82").Permalink }}{{- end -}}{{- end -}}
+{{- if not $coverURL -}}
+  {{- with index ($page.Resources.ByType "image") 0 -}}{{ $coverURL = (.Resize "1200x webp q82").Permalink }}{{- end -}}
+{{- end -}}
+{{- if $coverURL }}
+<meta property="og:image" content="{{ $coverURL }}">
+<meta property="og:type" content="article">
+<meta property="og:title" content="{{ $page.Title }} — {{ site.Title }}">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:image" content="{{ $coverURL }}">
+{{- end }}
+{{- end }}

@@ -1,0 +1,31 @@
+{{- /*
+  contact widget — pulls the author email from authors/admin and embeds
+  the clustrmaps visitor-map script (A10 acceptance gate: third-party
+  scripts preserved). The clustrmaps <script> tag is hardcoded here
+  because Goldmark strips <body>-wrapped script tags from markdown.
+*/ -}}
+{{- $id := .id -}}
+{{- $page := .page -}}
+{{- $author := site.GetPage "authors/admin" -}}
+<section class="home-section home-section--contact" id="{{ $id }}"
+         style="padding-block: var(--space-8);">
+  {{- with $page.Title }}
+  <h2 style="font-family: var(--font-ui); font-size: var(--fs-caption);
+             font-weight: 500; text-transform: uppercase;
+             letter-spacing: 0.12em; color: var(--ink-muted);
+             margin: 0 0 var(--space-5);">{{ . }}</h2>
+  {{- else }}
+  <h2 style="font-family: var(--font-ui); font-size: var(--fs-caption);
+             font-weight: 500; text-transform: uppercase;
+             letter-spacing: 0.12em; color: var(--ink-muted);
+             margin: 0 0 var(--space-5);">Contact</h2>
+  {{- end }}
+  <p>Best reached by email:
+    <a href="mailto:{{ $author.Params.email }}"
+       style="color: var(--accent);">{{ $author.Params.email }}</a>.
+  </p>
+  <div class="clustrmaps-wrap" style="margin-top: var(--space-6);">
+    <script type="text/javascript" id="clustrmaps"
+            src="//cdn.clustrmaps.com/map_v2.js?cl=080808&w=600&t=tt&d=hTTCwL6j2b86VfyaWebPgMSN4J3Jg5gJFLiOUy8AcjE&co=ffffff&cmo=3acc3a&cmn=ff5353&ct=808080"></script>
+  </div>
+</section>

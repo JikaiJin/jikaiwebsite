@@ -4,7 +4,7 @@
 widget: experience
 
 # This file represents a page section.
-headless: true
+headless: false
 
 # Order that this section appears on the page.
 weight: 40
@@ -22,14 +22,22 @@ date_format: "Jan 2006"
 #   Leave `date_end` empty if it's your current employer.
 #   Begin multi-line descriptions with YAML's `|2-` multi-line prefix.
 experience:
-    
-  - title: Undergraduate Research Intern
-    company: advised by Prof. Liwei Wang (Peking University)
+
+  - title: Meta Central Applied Science
+    company: Research Scientist Intern, mentored by Dr. Kenneth Hung
+    company_url: ''
+    location: Menlo Park, CA
+    date_start: '2025-06-01'
+    date_end: '2025-09-01'
+    description: Work on bandit algorithms for dynamic experimentation.
+
+  - title: Peking University School of EECS
+    company: undergraduate researcher, advised by Prof. Liwei Wang
     company_url: ''
     company_logo: pku
     location: Beijing, China
     date_start: '2020-02-01'
-    date_end: ''
+    date_end: '2023-06-01'
     description: Work on machine learning theory.
 
 design:

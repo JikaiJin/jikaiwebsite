@@ -1,0 +1,12 @@
+{{- /*
+  staticref shortcode — paired. Emits an <a> pointing at a static file.
+  Usage: {{< staticref "uploads/resume.pdf" "newtab" >}}resumé{{< /staticref >}}
+*/ -}}
+{{- $path := .Get 0 -}}
+{{- $mode := .Get 1 | default "" -}}
+{{- $href := printf "/%s" (strings.TrimLeft "/" $path) -}}
+{{- if eq $mode "newtab" -}}
+<a href="{{ $href }}" target="_blank" rel="noopener">{{ .Inner }}</a>
+{{- else -}}
+<a href="{{ $href }}">{{ .Inner }}</a>
+{{- end -}}

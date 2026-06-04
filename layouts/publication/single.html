@@ -1,0 +1,75 @@
+{{ define "main" -}}
+{{- $page := . -}}
+<article class="publication-single" style="max-width: var(--measure); margin-inline: auto; padding-inline: var(--space-5);">
+  <header style="margin-block: var(--space-6);">
+    <h1 style="font-family: 'Fraunces', 'GT Alpina', serif; font-weight: 500;
+               font-size: 2rem; line-height: 1.2; letter-spacing: -0.015em;
+               margin: 0 0 var(--space-3);">{{ .Title }}</h1>
+
+    {{- with .Params.authors }}
+    <div class="pub-authors" style="font-family: var(--font-serif);
+         font-size: var(--fs-body); color: var(--ink);
+         margin-bottom: var(--space-2);">
+      {{- range $i, $a := . -}}
+        {{- if $i }}, {{ end -}}
+        {{- if eq $a "admin" -}}
+          <span class="self" style="font-weight: 600;">Jikai Jin</span>
+        {{- else if eq $a "Jikai Jin" -}}
+          <span class="self" style="font-weight: 600;">Jikai Jin</span>
+        {{- else -}}
+          {{ $a }}
+        {{- end -}}
+      {{- end -}}
+    </div>
+    {{- end }}
+
+    {{- with .Params.publication }}
+    <div class="venue" style="font-variant: small-caps; letter-spacing: 0.05em;
+         font-size: 0.9rem; font-family: var(--font-nav); color: var(--ink-muted);
+         margin-bottom: var(--space-5);">{{ . | markdownify }} · {{ $page.Date.Format "2006" }}</div>
+    {{- end }}
+
+    <div class="pub-actions" style="margin-top: var(--space-4); font-size: 0.9rem;">
+      {{ partial "pub-links.html" . }}
+    </div>
+  </header>
+
+  {{- with .Params.abstract }}
+  <section style="margin-block: var(--space-6);">
+    <h2 style="font-family: var(--font-ui); font-size: var(--fs-caption);
+         font-weight: 500; text-transform: uppercase; letter-spacing: 0.12em;
+         color: var(--ink-muted); margin: 0 0 var(--space-3);">Abstract</h2>
+    <p style="font-size: var(--fs-body); line-height: var(--lh-body);
+         color: var(--ink);">{{ . | markdownify }}</p>
+  </section>
+  {{- end }}
+
+  {{- $featuredImage := resources.GetMatch (printf "%s/featured.*" .File.Dir) }}
+  {{- if not $featuredImage }}{{ $featuredImage = resources.GetMatch "**/featured.jpg" }}{{ end }}
+
+  {{- if .Content }}
+  <section class="prose" style="margin-block: var(--space-6); font-size: var(--fs-body); line-height: var(--lh-body);">
+    {{ .Content }}
+  </section>
+  {{- end }}
+
+  {{- if fileExists (printf "%s/cite.bib" .File.Dir) }}
+  <section style="margin-top: var(--space-8); padding-top: var(--space-5); border-top: 1px solid var(--rule);">
+    <h2 style="font-family: var(--font-ui); font-size: var(--fs-caption);
+         font-weight: 500; text-transform: uppercase; letter-spacing: 0.12em;
+         color: var(--ink-muted); margin: 0 0 var(--space-3);">Cite</h2>
+    <pre style="background: var(--bg-subtle); border: 1px solid var(--rule);
+         border-radius: var(--radius-md); padding: var(--space-4);
+         overflow-x: auto; font-family: var(--font-mono); font-size: 0.85rem;
+         line-height: 1.5;"><code>{{ readFile (printf "%s/cite.bib" .File.Dir) }}</code></pre>
+  </section>
+  {{- end }}
+
+  <footer style="margin-top: var(--space-8); padding-top: var(--space-5);
+       border-top: 1px solid var(--rule); font-family: var(--font-ui);
+       font-size: 0.9rem; color: var(--ink-muted);">
+    <a href="{{ "/publication/" | relURL }}" style="color: var(--ink-muted); text-decoration: none;
+       border-bottom: 1px solid var(--rule); padding-bottom: 1px;">← All publications</a>
+  </footer>
+</article>
+{{- end }}

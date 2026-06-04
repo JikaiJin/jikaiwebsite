@@ -1,0 +1,8 @@
+{{- /*
+  head-extra.html — non-pre-paint additions: per-page RSS autodiscovery,
+  structured data, third-party analytics. Never contains the theme-toggle
+  script; that lives in head.html as the first child of <head>.
+*/ -}}
+{{- if .OutputFormats.Get "rss" -}}
+<link rel="alternate" type="application/rss+xml" href="{{ (.OutputFormats.Get "rss").Permalink }}" title="{{ .Site.Title }} RSS">
+{{- end }}

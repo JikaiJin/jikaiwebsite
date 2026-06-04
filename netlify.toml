@@ -3,7 +3,7 @@
   publish = "public"
 
 [build.environment]
-  HUGO_VERSION = "0.97.3"
+  HUGO_VERSION = "0.159.2"
   HUGO_ENABLEGITINFO = "true"
 
 [context.production.environment]
@@ -15,10 +15,11 @@
 [context.branch-deploy]
   command = "hugo --gc --minify -b $DEPLOY_PRIME_URL"
 
-[[plugins]]
-  package = "netlify-plugin-hugo-cache-resources"
-  [plugins.inputs]
-    debug = true
+# netlify-plugin-hugo-cache-resources removed in cutover (decision C).
+# Plugin was not known-compatible with Hugo 0.159.2; tradeoff is slower
+# first-time module downloads on each branch-deploy (~10–15s), accepted
+# as simpler than version-pinning the plugin. Cache behavior falls back
+# to Netlify's default build cache.
 
 [[redirects]]
   from = "/post/prescriptive-scaling/"

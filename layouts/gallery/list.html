@@ -1,0 +1,59 @@
+{{ define "main" -}}
+<article class="gallery-list grid-page"
+         style="max-width: 1040px; margin-inline: auto;
+                padding-inline: var(--space-5);
+                padding-block: var(--space-6) var(--space-8);">
+  <header style="margin-bottom: var(--space-6); padding-bottom: var(--space-5);
+                 border-bottom: 1px solid var(--rule);">
+    <h1 style="font-family: 'Fraunces', 'GT Alpina', serif; font-weight: 500;
+         font-size: 2.5rem; line-height: 1.1; letter-spacing: -0.02em;
+         margin: 0 0 var(--space-2);">{{ .Title }}</h1>
+    {{- with .Description }}
+    <p style="font-family: var(--font-serif); color: var(--ink-muted);
+              font-size: var(--fs-body); margin: 0;">{{ . }}</p>
+    {{- end }}
+  </header>
+
+  {{- $albums := .Pages.ByDate.Reverse -}}
+  {{- if $albums }}
+  <div class="gallery-albums"
+       style="display: grid; grid-template-columns: repeat(3, 1fr);
+              gap: var(--space-6);">
+    {{- range $i, $album := $albums }}
+    <figure class="album-tile" style="margin: 0;">
+      <a href="{{ $album.RelPermalink }}"
+         style="text-decoration: none; color: inherit;">
+        <div class="tile"
+             style="aspect-ratio: 4 / 3; overflow: hidden;
+                    border: 1px solid var(--rule);
+                    border-radius: var(--radius-md);
+                    background: var(--bg-subtle);
+                    transition: border-color 120ms ease;">
+          {{ partial "gallery-cover.html" (dict "page" $album "eager" (eq $i 0)) }}
+        </div>
+        <figcaption style="font-family: 'Fraunces', 'GT Alpina', serif;
+             font-weight: 500; font-size: 1.15rem; letter-spacing: -0.01em;
+             line-height: 1.3; margin-top: var(--space-3);">{{ $album.Title }}</figcaption>
+        {{- with $album.Params.summary }}
+        <p style="font-family: var(--font-serif); font-size: var(--fs-small);
+             color: var(--ink-muted); line-height: 1.5;
+             margin: var(--space-1) 0 0;">{{ . }}</p>
+        {{- end }}
+        <div class="meta" style="font-family: var(--font-ui);
+             font-size: var(--fs-caption); color: var(--ink-muted);
+             letter-spacing: 0.04em; margin-top: var(--space-1);">{{ $album.Date.Format "Jan 2006" }}</div>
+      </a>
+    </figure>
+    {{- end }}
+  </div>
+  {{- else }}
+  <p style="font-family: var(--font-serif); color: var(--ink-muted);
+            font-size: var(--fs-body);">No albums yet.</p>
+  {{- end }}
+</article>
+<style>
+  @media (max-width: 900px) { .gallery-albums { grid-template-columns: repeat(2, 1fr) !important; } }
+  @media (max-width: 560px) { .gallery-albums { grid-template-columns: 1fr !important; } }
+  .album-tile a:hover .tile { border-color: var(--accent); }
+</style>
+{{- end }}

@@ -1,0 +1,31 @@
+{{- /*
+  blank widget — renders .page.Title as a section heading and
+  .page.Content as the body, with optional .page.Params.subtitle
+  (markdownified, small caption under title). Used for the
+  Wowchemy-legacy "blank" widget files: recent_news.md, awards.md.
+  Section id = passed-in .id (filename basename).
+*/ -}}
+{{- $id := .id -}}
+{{- $page := .page -}}
+<section class="home-section home-section--{{ $id }}" id="{{ $id }}"
+         style="padding-block: var(--space-8); border-bottom: 1px solid var(--rule);">
+  {{- with $page.Title }}
+  <h2 style="font-family: var(--font-ui); font-size: var(--fs-caption);
+             font-weight: 500; text-transform: uppercase;
+             letter-spacing: 0.12em; color: var(--ink-muted);
+             margin: 0 0 var(--space-5);">{{ . }}</h2>
+  {{- end }}
+  {{- with $page.Params.subtitle }}
+  <p class="home-section__subtitle"
+     style="font-family: var(--font-serif); color: var(--ink-muted);
+            font-size: var(--fs-small); margin: 0 0 var(--space-4);">{{ . | markdownify }}</p>
+  {{- end }}
+  <div class="home-section__body">
+    {{ $page.Content }}
+  </div>
+</section>
+<style>
+  #{{ $id }} ul { list-style: none; padding: 0; margin: 0; }
+  #{{ $id }} li { padding-block: var(--space-3); border-top: 1px solid var(--rule); }
+  #{{ $id }} li:first-child { border-top: 0; padding-top: 0; }
+</style>

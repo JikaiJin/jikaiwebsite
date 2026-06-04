@@ -1,0 +1,13 @@
+{{- /*
+  icon shortcode — minimal stub replacing the Wowchemy original.
+  Usage: {{< icon name="download" pack="fas" >}}
+  We don't ship an icon font; emit a small text marker so content reads
+  cleanly without broken references.
+*/ -}}
+{{- $name := .Get "name" -}}
+{{- $marker := "●" -}}
+{{- if eq $name "download" }}{{ $marker = "⬇" }}{{ end -}}
+{{- if eq $name "external-link" }}{{ $marker = "↗" }}{{ end -}}
+{{- if eq $name "envelope" }}{{ $marker = "✉" }}{{ end -}}
+{{- if eq $name "github" }}{{ $marker = "●" }}{{ end -}}
+<span class="icon icon-{{ $name }}" aria-hidden="true">{{ $marker }}</span>

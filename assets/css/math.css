@@ -1,0 +1,40 @@
+/* ============================================================
+   math.css — opt-in math typography (Arch-2)
+
+   Import this ONLY on pages that use math. Non-math posts must
+   not load it — STIX Two Math is ~450KB even subset and would
+   silently break the A5 280KB above-the-fold budget.
+
+   MathJax / KaTeX typically ship their own math fonts. This file
+   is only needed if you want STIX Two Math consistency across
+   `<mjx-container>` (MathJax CHTML output), `<span class="katex">`
+   (KaTeX), and raw `<math>` MathML.
+
+   Preview build uses Google Fonts for STIX Two Math. Production
+   should self-host from https://github.com/stipub/stixfonts.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=STIX+Two+Math&display=swap');
+
+/* Apply to common math renderer containers */
+.math,
+mjx-container,
+.katex,
+math {
+  font-family: 'STIX Two Math', 'Latin Modern Math', 'Cambria Math', serif;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+/* MathJax CHTML config snippet (paste into your MathJax config):
+   MathJax = {
+     chtml: {
+       displayAlign: 'center',
+       mtextFont: 'STIX Two Math',
+       mtextInheritFont: false
+     }
+   };
+*/
+
+/* KaTeX note: KaTeX bundles its own math fonts (KaTeX_Main,
+   KaTeX_AMS, etc.) — if you use KaTeX you may skip loading
+   STIX Two Math entirely. This file is then a no-op. */

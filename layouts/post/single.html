@@ -1,0 +1,66 @@
+{{ define "main" -}}
+<div class="post-layout">
+  <article class="prose-article">
+    <header style="margin-block: var(--space-6);">
+      <h1 style="font-family: 'Fraunces', 'GT Alpina', serif; font-weight: 500;
+           font-size: 2.25rem; line-height: 1.15; letter-spacing: -0.015em;
+           margin: 0 0 var(--space-3);">{{ .Title }}</h1>
+
+      {{- with .Params.subtitle }}
+      <p class="lede" style="font-family: var(--font-serif); font-size: var(--fs-lede);
+           line-height: var(--lh-snug); color: var(--ink); margin: var(--space-3) 0;">{{ . | markdownify }}</p>
+      {{- end }}
+
+      <div class="post-meta" style="font-family: var(--font-ui); font-size: var(--fs-caption);
+           color: var(--ink-muted); letter-spacing: 0.02em; margin-top: var(--space-4);">
+        <time datetime="{{ .Date.Format "2006-01-02" }}" style="font-variant-numeric: lining-nums;">{{ .Date.Format "January 2, 2006" }}</time>
+        {{- if gt .WordCount 0 }} · <span>{{ .ReadingTime }} min read</span>{{ end -}}
+        {{- with .Params.tags }} · <span>{{ delimit . ", " }}</span>{{ end }}
+      </div>
+    </header>
+
+    {{- /* Mobile / tablet inline TOC: shown < 1280px, collapsible */ -}}
+    {{- if .TableOfContents }}
+    <details class="toc" open>
+      <summary>Contents</summary>
+      {{ .TableOfContents }}
+    </details>
+    {{- end }}
+
+    <div class="prose">
+      {{ .Content }}
+    </div>
+
+    {{- with .Params.tags }}
+    <footer style="margin-top: var(--space-8); padding-top: var(--space-5);
+         border-top: 1px solid var(--rule); font-family: var(--font-ui);
+         font-size: 0.9rem; color: var(--ink-muted);">
+      <div>Tags: {{ delimit . ", " }}</div>
+    </footer>
+    {{- end }}
+  </article>
+
+  {{- /* Desktop TOC: shown at >= 1280px only, sticky right-margin (see tokens.css) */ -}}
+  {{- if .TableOfContents }}
+  <nav class="toc" aria-label="Table of contents">
+    <h3>Contents</h3>
+    {{ .TableOfContents }}
+  </nav>
+  {{- end }}
+</div>
+
+<script>
+  // Sync which TOC is visible per breakpoint. CSS media queries control display.
+  (function() {
+    function syncTOC() {
+      var isDesktop = window.innerWidth >= 1280;
+      var navEl = document.querySelector('nav.toc');
+      var detEl = document.querySelector('details.toc');
+      if (navEl) navEl.style.display = isDesktop ? '' : 'none';
+      if (detEl) detEl.style.display = isDesktop ? 'none' : '';
+    }
+    syncTOC();
+    window.addEventListener('resize', syncTOC);
+  })();
+</script>
+{{- end }}

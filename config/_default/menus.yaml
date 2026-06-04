@@ -8,7 +8,11 @@ main:
     url: '#about'
     weight: 10
   - name: Publications
-    url: '#featured'
+    # The Recent Publications widget is deactivated on the home page, so
+    # the nav lands on the full publications index at /publication/.
+    # (Home still ships a curated "Featured Publications" subset at
+    # #featured.)
+    url: '/publication/'
     weight: 50
   - name: Contact
     url: '#contact'
@@ -19,6 +23,9 @@ main:
   - name: Blog
     url: '/prescriptive-scaling/'
     weight: 40
+  - name: Gallery
+    url: '/gallery/'
+    weight: 55
   - name: Experience
     url: '#experience'
     weight: 60

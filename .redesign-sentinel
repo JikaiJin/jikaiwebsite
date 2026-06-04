@@ -1,0 +1,4 @@
+This file exists to trigger Netlify branch-deploy wiring for the `redesign-step1` branch.
+Tracked per the cutover plan, Step 1. Deleted at Step 10 (cutover) along with the branch merge.
+
+Plan: .omc/plans/cutover-v1.md

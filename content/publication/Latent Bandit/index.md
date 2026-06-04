@@ -19,10 +19,10 @@ publishDate: '2026-02-04T00:00:00Z'
 publication_types: ['3']
 
 # Publication name and optional abbreviated publication name.
-publication: "arXiv preprint"
-publication_short: "arXiv"
+publication: "In *Thirty-second ACM SIGKDD Conference on Knowledge Discovery and Data Mining*"
+publication_short: "In *KDD 2026*"
 
-abstract: "The multi-armed bandit problem is a core framework for sequential decision-making under uncertainty, but classical algorithms often fail in environments with hidden, time-varying states that confound reward estimation and optimal action selection. We address key challenges arising from unobserved confounders, such as biased reward estimates and limited state information, by introducing a family of state-model-free bandit algorithms that leverage lagged contextual features and coordinated probing strategies. These implicitly track latent states and disambiguate state-dependent reward patterns. Our methods and their adaptive variants can learn optimal policies without explicit state modeling, combining computational efficiency with robust adaptation to non-stationary rewards. Empirical results across diverse settings demonstrate superior performance over classical approaches, and we provide practical recommendations for algorithm selection in real-world applications."
+abstract: "We study bandits whose rewards depend on an unobserved Markov state that evolves independently of the learner's actions. The optimal arm can change even though the learner observes only past actions and rewards. We propose algorithms that feed LinUCB with two summaries of the hidden state: a lagged action-reward pair and, when available, a probe fingerprint formed from rewards of multiple arms. The adaptive variants refresh the fingerprint using residual, margin, and staleness tests. In synthetic stress tests over state count, transition rate, noise, and horizon, these methods reduce dynamic regret relative to standard, adversarial, and non-stationary bandit baselines when the summaries distinguish states and are updated often enough. Ablations and misspecification tests identify the main failure modes: weak fingerprint separation, high noise, and state changes during sequential probes."
 
 # Summary. An optional shortened abstract.
 summary: 'We propose adaptive, state-model-free bandit algorithms for latent-state (confounded, non-stationary) environments.'
