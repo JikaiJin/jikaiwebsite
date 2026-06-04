@@ -19,7 +19,7 @@ publishDate: '2026-02-04T00:00:00Z'
 publication_types: ['3']
 
 # Publication name and optional abbreviated publication name.
-publication: "*Thirty-second 32nd ACM SIGKDD Conference on Knowledge Discovery and Data Mining*"
+publication: "*Thirty-second ACM SIGKDD Conference on Knowledge Discovery and Data Mining*"
 publication_short: "*KDD 2026*"
 
 abstract: "We study bandits whose rewards depend on an unobserved Markov state that evolves independently of the learner's actions. The optimal arm can change even though the learner observes only past actions and rewards. We propose algorithms that feed LinUCB with two summaries of the hidden state: a lagged action-reward pair and, when available, a probe fingerprint formed from rewards of multiple arms. The adaptive variants refresh the fingerprint using residual, margin, and staleness tests. In synthetic stress tests over state count, transition rate, noise, and horizon, these methods reduce dynamic regret relative to standard, adversarial, and non-stationary bandit baselines when the summaries distinguish states and are updated often enough. Ablations and misspecification tests identify the main failure modes: weak fingerprint separation, high noise, and state changes during sequential probes."
