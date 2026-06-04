@@ -112,7 +112,7 @@
 
   /* ---------- Light mode palette (time-theme v1 — day) ---------- */
   --bg:             #e0f7fa;    /* light cyan */
-  --bg-subtle:      #EFEAE1;
+  --bg-subtle:      #c5edf2;    /* tinted cyan, harmonizes with --bg */
   --ink:            #171212;    /* deep near-black with burgundy undertone */
   --ink-muted:      #6B6863;    /* text-muted */
   --accent:         #6B1F2A;    /* oxblood / burgundy — links */
