@@ -18,8 +18,8 @@ publishDate: '2026-02-17T00:00:00Z'
 publication_types: ['3']
 
 # Publication name and optional abbreviated publication name.
-publication: "arXiv preprint"
-publication_short: "arXiv"
+publication: "*The Fortieth International Conference on Machine Learning*"
+publication_short: "*ICML 2026 (oral, top 1\%)*"
 
 abstract: "We study *prescriptive* scaling laws for foundation models: given a pretraining compute budget, what downstream benchmark accuracy is achievable under contemporary post-training practice, and how stable is this mapping over time? Using large-scale observational evaluations, we estimate capability boundaries (high conditional quantiles of scores) as a function of log pretraining FLOPs via a monotone, saturating sigmoid quantile-regression model. We test temporal reliability by fitting on earlier model generations and evaluating on later releases, finding mostly stable boundaries except for math reasoning, which advances over time. We further analyze task-dependent saturation and potential contamination-related shifts for math reasoning, and propose an evaluation strategy that recovers near-full frontiers with about 20% of the evaluation budget. We release the Proteus 2k dataset and provide a practical methodology for translating compute budgets into performance expectations and monitoring boundary shifts."
 
