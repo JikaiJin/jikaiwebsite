@@ -48,40 +48,41 @@
        hyphens: none; -webkit-hyphens: none; text-align: left;
        font-feature-settings: 'onum', 'liga', 'kern';">
     {{ $author.Content }}
-    {{- /* Third paragraph — the social / CV link row. Rendered
-           template-side so the bio body stays prose-only. */ -}}
-    <p class="bio-links">
-      {{- $first := true -}}
-      {{- range $author.Params.social -}}
-        {{- $label := "" -}}
-        {{- if eq .icon "envelope" }}{{ $label = "Email" }}{{ end -}}
-        {{- if eq .icon "graduation-cap" }}{{ $label = "Google Scholar" }}{{ end -}}
-        {{- if eq .icon "github" }}{{ $label = "Github" }}{{ end -}}
-        {{- if eq .icon "weixin" }}{{ $label = "WeChat" }}{{ end -}}
-        {{- if $label -}}
-          {{- if not $first }} · {{ end -}}
-          <a href="{{ .link }}">{{ $label }}</a>
-          {{- $first = false -}}
-        {{- end -}}
-      {{- end -}}
-      {{- if not $first }} · {{ end -}}<a href="/uploads/resume.pdf">CV</a>
-    </p>
   </div>
 
-  <div class="portrait" style="
-       grid-area: portrait; width: 100%; aspect-ratio: 1;
-       border-radius: 50%; overflow: hidden;
-       background: var(--bg-subtle); border: 1px solid var(--rule);">
-    {{- /* avatar.jpg is a bundle resource of content/authors/admin/,
-           so it's accessed via the author page's .Resources, not the
-           global resources.* functions. */ -}}
-    {{- $avatar := $author.Resources.GetMatch "avatar.*" -}}
-    {{- if $avatar }}
-    <img src="{{ $avatar.RelPermalink }}" alt="{{ $author.Params.title }}"
-         style="width: 100%; height: 100%; object-fit: cover;">
-    {{- else }}
-    <img src="/authors/admin/avatar.jpg" alt="{{ $author.Params.title }}"
-         style="width: 100%; height: 100%; object-fit: cover;">
+  <div class="portrait-col" style="grid-area: portrait; display: flex; flex-direction: column; align-items: center; gap: var(--space-4);">
+    <div class="portrait" style="
+         width: 100%; aspect-ratio: 1;
+         border-radius: 50%; overflow: hidden;
+         background: var(--bg-subtle); border: 1px solid var(--rule);">
+      {{- /* avatar.jpg is a bundle resource of content/authors/admin/,
+             so it's accessed via the author page's .Resources, not the
+             global resources.* functions. */ -}}
+      {{- $avatar := $author.Resources.GetMatch "avatar.*" -}}
+      {{- if $avatar }}
+      <img src="{{ $avatar.RelPermalink }}" alt="{{ $author.Params.title }}"
+           style="width: 100%; height: 100%; object-fit: cover;">
+      {{- else }}
+      <img src="/authors/admin/avatar.jpg" alt="{{ $author.Params.title }}"
+           style="width: 100%; height: 100%; object-fit: cover;">
+      {{- end }}
+    </div>
+    {{- /* Social / contact icons as inline SVG (fill: currentColor), right
+           below the portrait. Data-driven from the author `social` frontmatter —
+           add an entry there + a branch in partials/social-icon.html to add one. */ -}}
+    {{- with $author.Params.social }}
+    <nav class="social-icons" aria-label="Social and contact links">
+      {{- range . -}}
+        {{- $label := .icon -}}
+        {{- if eq .icon "envelope" }}{{ $label = "Email" }}{{ end -}}
+        {{- if or (eq .icon "graduation-cap") (eq .icon "google-scholar") }}{{ $label = "Google Scholar" }}{{ end -}}
+        {{- if eq .icon "github" }}{{ $label = "GitHub" }}{{ end -}}
+        {{- if eq .icon "weixin" }}{{ $label = "WeChat" }}{{ end -}}
+        {{- if or (eq .icon "twitter") (eq .icon "x-twitter") }}{{ $label = "X (Twitter)" }}{{ end -}}
+        {{- if or (eq .icon "linkedin") (eq .icon "linkedin-in") }}{{ $label = "LinkedIn" }}{{ end -}}
+        <a href="{{ .link }}" aria-label="{{ $label }}" title="{{ $label }}"{{ if hasPrefix .link "http" }} target="_blank" rel="noopener"{{ end }}>{{ partial "social-icon.html" .icon }}</a>
+      {{- end -}}
+    </nav>
     {{- end }}
   </div>
 </header>
@@ -92,21 +93,15 @@
       grid-template-columns: 1fr !important;
       grid-template-areas: "portrait" "name" "subtitle" "bio" !important;
     }
-    .intro > .portrait { width: 120px !important; justify-self: start; margin-bottom: var(--space-4); }
+    .intro > .portrait-col { width: 120px !important; justify-self: start; margin-bottom: var(--space-4); align-items: flex-start; }
+    .intro > .portrait-col .social-icons { justify-content: flex-start; }
   }
   .bio a { color: var(--accent); }
-  .bio .bio-links { margin-top: 1.5rem; }
-  .bio .bio-links a {
-    color: var(--ink-muted);
-    text-decoration: none;
-    border-bottom: 1px solid rgba(0,0,0,0.15);
-    padding-bottom: 1px;
-  }
-  .bio .bio-links a:hover,
-  .bio .bio-links a:focus-visible {
-    color: var(--accent);
-    border-bottom-color: var(--accent);
-  }
+  .social-icons { display: flex; flex-wrap: wrap; gap: 0.9rem; align-items: center; justify-content: center; }
+  .social-icons a { color: var(--ink-muted); display: inline-flex; align-items: center; transition: color 120ms ease; }
+  .social-icons a:hover,
+  .social-icons a:focus-visible { color: var(--accent); }
+  .social-icons svg { height: 1.25rem; width: auto; display: block; }
 
   .name-cn--dark { display: none; }
   [data-theme="dark"] .name-cn--light { display: none; }
