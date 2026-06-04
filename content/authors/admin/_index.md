@@ -67,8 +67,8 @@ email: 'jkjin@stanford.edu'
 highlight_name: true
 ---
 
-Third-year PhD at Stanford ICME, advised by Vasilis Syrgkanis. Previously at Peking University with Liwei Wang.
+I'm a third-year Ph.D. at Stanford ICME, advised by Prof. Vasilis Syrgkanis. Previously I studied computational mathematics at Peking University, advised by Prof. Liwei Wang.
 
-I work on making the frontier of intelligence more principled, more robust, and better adapted to real-world applications.
+I work on the frontier of intelligence, specifically on making data-driven algorithms more principled, more robust, and better adapted to societal considerations. 
 
-You can [download my CV](/uploads/resume.pdf).
+You can download my CV [here](/uploads/resume.pdf).
