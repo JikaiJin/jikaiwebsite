@@ -495,18 +495,6 @@ article.prose-article.no-section-numbers h2::before { content: none; }
   letter-spacing: -0.005em;
 }
 .site-header nav a { color: var(--ink-muted); }
-/* Brand (nav-logo) — non-italic serif, matches body family for quiet chrome. */
-.site-header .brand {
-  font-family: var(--font-body);
-  font-weight: 600;
-  font-size: 0.95rem;
-  letter-spacing: -0.005em;
-  font-style: normal;
-  color: var(--ink);
-  text-decoration: none;
-  white-space: nowrap;
-  flex-shrink: 0;
-}
 .site-header nav {
   display: flex;
   gap: var(--space-5);
@@ -535,6 +523,12 @@ article.prose-article.no-section-numbers h2::before { content: none; }
 .site-header nav a {
   color: var(--ink-muted);
   text-decoration: none;
+  /* Match the "Recent News" section-heading style (see widgets/blank.html):
+     --font-ui (inherited from .site-header), small caption size, uppercase. */
+  font-size: var(--fs-caption);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
 }
 .site-header nav a:hover { color: var(--accent); }
 
