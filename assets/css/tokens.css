@@ -111,7 +111,7 @@
   --space-12: 4.5rem;
 
   /* ---------- Light mode palette (time-theme v1 — day) ---------- */
-  --bg:             #F5F2EC;    /* warm cream, slightly warmer than neutral */
+  --bg:             #e0f7fa;    /* light cyan */
   --bg-subtle:      #EFEAE1;
   --ink:            #171212;    /* deep near-black with burgundy undertone */
   --ink-muted:      #6B6863;    /* text-muted */
