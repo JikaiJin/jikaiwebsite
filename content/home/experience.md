@@ -22,8 +22,15 @@ date_format: "Jan 2006"
 #   Leave `date_end` empty if it's your current employer.
 #   Begin multi-line descriptions with YAML's `|2-` multi-line prefix.
 experience:
+  - title: Jump Trading
+    company: Quantitative Research Intern
+    company_url: ''
+    location: Chicago, IL and New York, NY
+    date_start: '2025-06-15'
+    date_end: '2025-08-21'
+    description: 
 
-  - title: Meta Central Applied Science
+  - title: Meta
     company: Research Scientist Intern, mentored by Dr. Kenneth Hung
     company_url: ''
     location: Menlo Park, CA
